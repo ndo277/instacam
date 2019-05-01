@@ -5,9 +5,9 @@ import {signup, login, logout} from './util/session_api_util';
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
 
-  window.signup = signup;
-  window.login = login;
-  window.logout = logout;
+  // window.signup = signup;
+  // window.login = login;
+  // window.logout = logout;
   
 
   ReactDOM.render(<h1>INSTACAM</h1>, root);
