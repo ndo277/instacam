@@ -13,7 +13,7 @@ const App = (props) => (
     <h1>Instacam</h1>
     <GreetingContainer />
     <Switch>
-        <Route path="/" component={MainPageContainer} />
+        {/* <Route path="/" component={MainPageContainer} /> */}
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
     </Switch>
