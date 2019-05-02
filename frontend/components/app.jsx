@@ -3,13 +3,24 @@ import GreetingContainer from './greeting_container';
 import {Route} from 'react-router-dom';
 import SignupFormContainer from './signup_form_container';
 import LoginFormContainer from './login_form_container';
+import {AuthRoute, ProtectedRoute} from '../util/route_util';
 
-const App = () => (
+
+const App = (props) => (
   <div>
     <h1>Instacam</h1>
-    <GreetingContainer />
-    <Route path="/login" component={LoginFormContainer}/>
-    <Route path="/signup" component={SignupFormContainer}/>
+    {
+      props.currentUser ? 
+      (
+        <Route exact path="/" component={GreetingContainer} />
+      ):
+      (
+        <>
+        <AuthRoute path="/login" component={LoginFormContainer} />
+        <AuthRoute path="/(|signup)" component={SignupFormContainer} />
+        </>
+      )
+    }
   </div>
 );
 

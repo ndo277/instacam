@@ -11,7 +11,7 @@ const Greeting = (props) => {
 
   const sessionLinks = () => (
     <div>
-      <Link to='/signup'>Sign Up</Link>
+      <Link to='/'>Sign Up</Link>
       <br/><br/>
       <Link to='/login'>Log In</Link>
     </div>
