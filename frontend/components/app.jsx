@@ -10,11 +10,12 @@ import MainPageContainer from './main_page_container';
 
 const App = (props) => (
   <div>
-    <h1 className="logo-name">Instacam</h1>
     <GreetingContainer />
-    <Route exact path="/" component={MainPageContainer} />
-    <AuthRoute exact path="/login" component={LoginFormContainer} />
-    <AuthRoute exact path="/signup" component={SignupFormContainer} />
+    <Switch>
+      <Route path="/" component={MainPageContainer} />
+      <AuthRoute path="/login" component={LoginFormContainer} />
+      <AuthRoute path="/signup" component={SignupFormContainer} />
+    </Switch>
   </div>
 );
 

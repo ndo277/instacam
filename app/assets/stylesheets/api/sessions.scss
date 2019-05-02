@@ -12,4 +12,32 @@
 
 .logo-name {
   font-family: billabong;
+  font-size: 40px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid;
+  margin: 10px;
+  background-color: #fff;
+}
+
+.bottom-authbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid;
+  margin: 10px;
+}
+
+.auth-button {
+  background-color: #3897f0;
+  border: 1px solid #3897f0;
+  border-radius: 4px;
+  color: #fff;
+  position: relative;
+  margin: 10px;
 }

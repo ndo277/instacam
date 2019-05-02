@@ -6,12 +6,15 @@ import React from 'react';
 
 const mapStateToProps = (state) => ({
   errors: state.errors.sessionErrors,
-  formType: 'Log In',
+  formType: '',
+  buttonType: "Log In",
+  queryType: "Don't have an account?",
   navLink: <Link to="/signup">Sign Up</Link>
 });
 
 const mapDispatchToProps = (dispatch) => ({
   processForm: (user) => dispatch(login(user)),
+  login: (user) => dispatch(login(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
