@@ -21,16 +21,17 @@ const receiveErrors = (errors) => ({
 }); 
 
 export const login = (user) => (dispatch) => {
-  return ApiUtil.login(user).then(user => dispatch(receiveCurrentUser(user))),
-    err => (dispatch(receiveErrors(err.responseJSON)))
+  return ApiUtil.login(user).then(
+    user => dispatch(receiveCurrentUser(user)),
+    err => dispatch(receiveErrors(err.responseJSON)));
 };
 
 export const signup = (user) => (dispatch) => (
-  ApiUtil.signup(user).then(user => dispatch(receiveCurrentUser(user))),
-    err => (dispatch(receiveErrors(err.responseJSON)))
+  ApiUtil.signup(user).then(user => dispatch(receiveCurrentUser(user)),
+    err => (dispatch(receiveErrors(err.responseJSON))))
 );
 
 export const logout = () => (dispatch) => {
-  return ApiUtil.logout().then(user => dispatch(logoutCurrentUser()))
+  return ApiUtil.logout().then(user => dispatch(logoutCurrentUser()));
 };
 

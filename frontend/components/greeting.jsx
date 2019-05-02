@@ -9,15 +9,7 @@ const Greeting = (props) => {
     </div>
   );
 
-  const sessionLinks = () => (
-    <div>
-      <Link to='/'>Sign Up</Link>
-      <br/><br/>
-      <Link to='/login'>Log In</Link>
-    </div>
-  );
-
-  return props.currentUser ? personalGreeting() : sessionLinks();
+  return props.currentUser ? personalGreeting() : null;
 
 }; 
 

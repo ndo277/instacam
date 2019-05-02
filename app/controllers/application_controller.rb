@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def logout
     current_user.reset_session_token if current_user
     session[:session_token] = nil
-    current_user = nil 
+    @current_user = nil 
   end
 
   def require_logged_in
