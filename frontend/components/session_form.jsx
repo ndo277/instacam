@@ -61,7 +61,11 @@ class SessionForm extends React.Component {
                 Log in with Demo User
               </button>
 
+                  <div className="or-line-text">
+                <div className="or-line"/>
               <h3 className="or-text">OR</h3>
+                <div className="or-line" />
+                  </div>
             
               <input className="form-field" type="text"
                 placeholder=" Username"

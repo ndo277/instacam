@@ -83,6 +83,18 @@
   margin: 10px 10px;
 }
 
+.or-line {
+  height: 1px;
+  width: 90px;
+  background-color: #999;
+}
+
+.or-line-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .image-form {
   display: flex;
   flex-direction: row;
@@ -95,3 +107,4 @@
 .box {
   width: 500px;
 }
+
