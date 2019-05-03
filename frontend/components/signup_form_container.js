@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
   formType: 'Sign up to see photos and videos from your friends.',
   buttonType: 'Sign up',
   queryType: 'Have an account?',
-  navLink: <Link to="/login">Log In</Link>
+  navLink: <Link to="/login">Log in</Link>
 });
 
 const mapDispatchToProps = (dispatch) => ({

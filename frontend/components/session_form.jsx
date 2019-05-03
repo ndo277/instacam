@@ -46,6 +46,7 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="image-form">
+        <div className="box"></div>
         <img src="/images/phones.png" />
 
         <main className="authbox">
@@ -87,6 +88,8 @@ class SessionForm extends React.Component {
             
 
         </main>
+
+        <div className="box"></div>
       </div>
 
     );
