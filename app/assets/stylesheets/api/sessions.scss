@@ -13,6 +13,7 @@
 .logo-name {
   font-family: billabong;
   font-size: 40px;
+  margin: 10px;
 }
 
 .auth-form {
@@ -20,10 +21,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid;
+  border: 1px solid #e6e6e6;
   margin: 10px;
+  padding: 10px;
   background-color: #fff;
+  width: 300px;
 }
+
+.authbox {
+  width: 300px;
+  margin: auto;
+}
+
 
 .bottom-authbox {
   display: flex;
@@ -31,6 +40,10 @@
   align-items: center;
   border: solid;
   margin: 10px;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  width: 300px;
 }
 
 .auth-button {
@@ -40,4 +53,41 @@
   color: #fff;
   position: relative;
   margin: 10px;
+  height: 30px;
+  width: 80%;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.form-field {
+  height: 30px;
+  width: 80%;
+  margin: 5px;
+  background-color: #fafafa80;
+}
+
+.form-type {
+  color: #999;
+  text-align: center;
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 17px;
+  margin: 0 40px 10px;
+}
+
+.or-text {
+  color: #999;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 15px;
+  margin: 10px 10px;
+}
+
+.image-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.image-form img {
+  margin: auto;
 }

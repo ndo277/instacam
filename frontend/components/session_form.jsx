@@ -44,50 +44,50 @@ class SessionForm extends React.Component {
   }
 
   render() {
-
     return (
-      <div className="authbox">
-          
-  
-          <form className="auth-form" onSubmit={this.handleSubmit}>
-            <h1 className="logo-name">Instacam</h1>
+      <div className="image-form">
+        <img src="/images/phones.png" />
 
-            <h2>{this.props.formType}</h2>
+        <main className="authbox">
 
-            <button className="auth-button"  
-              onClick={this.handleDemoSubmit}>
-              Demo User
-            </button>
+            <form className="auth-form" onSubmit={this.handleSubmit}>
+              <h1 className="logo-name">Instacam</h1>
 
-            <h3> ------ OR ------- </h3>
-           
-            <input type="text"
-              placeholder="Username"
-              value={this.state.username}
-              onChange={this.update('username')}
-            />
+              <h3 className="form-type">{this.props.formType}</h3>
 
-            <input type="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.update('password')}
-            />
+              <button className="auth-button"  
+                onClick={this.handleDemoSubmit}>
+                Log in with Demo User
+              </button>
 
-            <input className="auth-button" type="submit" value={this.props.buttonType}/>
+              <h3 className="or-text">OR</h3>
             
-            <ul>{this.renderErrors()}</ul>
-          
-          </form>
-      
+              <input className="form-field" type="text"
+                placeholder="Username"
+                value={this.state.username}
+                onChange={this.update('username')}
+              />
 
-        <div className="bottom-authbox">
+            <input className="form-field" type="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.update('password')}
+              />
+
+              <input className="auth-button" type="submit" value={this.props.buttonType}/>
+              
+              <ul>{this.renderErrors()}</ul>
+            
+            </form>
+        
+
+          <div className="bottom-authbox">
             <p>{this.props.queryType} {this.props.navLink}</p>
-        </div>
-          
+          </div>
+            
 
+        </main>
       </div>
-
-
 
     );
   }
