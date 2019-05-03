@@ -2,3 +2,36 @@ body {
   background-color: #fafafa80;
   font-family: Arial;
 }
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.nav-button {
+  width: 100px;
+  height: 20px;
+}
+
+.navbar-spacer {
+  width: 225px;
+}
+
+.logo-name-navbar {
+  font-family: billabong;
+  font-size: 35px;
+}
+
+.navbar-pipe {
+  width: 1px;
+  height: 32px;
+  background-color: #262626;
+}
+
+.welcome {
+  font-family: billabong;
+  font-size: 35px;
+}
