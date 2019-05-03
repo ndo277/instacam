@@ -64,13 +64,13 @@ class SessionForm extends React.Component {
               <h3 className="or-text">OR</h3>
             
               <input className="form-field" type="text"
-                placeholder="Username"
+                placeholder=" Username"
                 value={this.state.username}
                 onChange={this.update('username')}
               />
 
             <input className="form-field" type="password"
-                placeholder="Password"
+                placeholder=" Password"
                 value={this.state.password}
                 onChange={this.update('password')}
               />
