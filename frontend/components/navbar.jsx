@@ -1,13 +1,15 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 const Navbar = (props) => {
   const personalGreeting = () => (
     <div className="navbar">
 
-      <img src="/images/logo.png" />
+        <div className="navbar-left">
+      <img className="logo-navbar" src="/images/logo.png" />
       <div className="navbar-pipe" />
       <h1 className="logo-name-navbar">Instacam</h1>
+        </div>
+
       <div className="navbar-spacer"/>
 
       <h3 className="welcome">Welcome, {props.currentUser.username}!</h3>
