@@ -1,7 +1,11 @@
 import React from 'react';
 
-const Feed = (props) => ( 
-<h2> FEED GOES HERE </h2> 
-)
+const Feed = (props) => {
+  return (
+    <div>
+    <input type="file"/>
+    </div >
+  )
+};
 
 export default Feed;
