@@ -4,7 +4,7 @@ const Navbar = (props) => {
   const personalGreeting = () => (
     <div className="navbar">
 
-        <a className="navbar-left" href="/">
+        <a className="navbar-left" >
         <img className="logo-navbar" src="/images/logo-v.png" />
       <div className="navbar-pipe" />
       <h1 className="logo-name-navbar">Instacam</h1>
