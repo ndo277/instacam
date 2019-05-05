@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
+    this.loginDemoUser = this.loginDemoUser.bind(this);
   }
 
   update(field) {
@@ -27,10 +28,40 @@ class SessionForm extends React.Component {
 
   handleDemoSubmit(e) {
     e.preventDefault();
-    const demoUser = { username: "vhsjoh", password: "password" };
-    this.props.login(demoUser).then(() => {
-      this.props.history.push("/")}
+
+    let demoUser = 'vhsjoh'.split("");
+    let demoPassword = 'password'.split("");
+
+    this.setState({
+      username: "",
+      password: "",
+    }, () => this.demoLogin(demoUser, demoPassword));
+    
+    setTimeout(this.loginDemoUser, 1500);
+    
+  }
+  
+  loginDemoUser(){
+    this.props.login({ username: "vhsjoh", password: "password" }).then(() => {
+      this.props.history.push("/");
+    }
     );
+  }
+
+  demoLogin(username, password) {
+    if (username.length > 0) {
+      this.setState({ username: this.state.username += username.shift() },
+        () => window.setTimeout(() => this.demoLogin(username, password), 60));
+    } else if (password.length > 0) {
+      this.setState({ password: this.state.password += password.shift() },
+        () => window.setTimeout(() => this.demoLogin(username, password), 70));
+    } else if (username.length === 0 && password.length === 0) {
+      this.props.demoLogin(this.state);
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   renderErrors(){
@@ -81,7 +112,7 @@ class SessionForm extends React.Component {
 
               <input className="auth-button" type="submit" value={this.props.buttonType}/>
               
-              <ul>{this.renderErrors()}</ul>
+              <ul className="session-errors">{this.renderErrors()}</ul>
             
             </form>
         
