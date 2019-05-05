@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
 
   handleDemoSubmit(e) {
     e.preventDefault();
-    const demoUser = { username: "nhdo", password: "password" };
+    const demoUser = { username: "vhsjoh", password: "password" };
     this.props.login(demoUser).then(() => {
       this.props.history.push("/")}
     );
@@ -37,7 +37,7 @@ class SessionForm extends React.Component {
     return(
       <ul>
         {this.props.errors.map((error) => (
-          <li>{error}</li>
+          <p>{error}</p>
         ))}
       </ul>
     )

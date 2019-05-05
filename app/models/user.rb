@@ -7,11 +7,11 @@ class User < ApplicationRecord
   validates :bio, length: {maximum: 150}
   validates :phone_number, length: {maximum: 15}
 
-  before_validation :ensure_session_token
+  before_validation :ensure_session_token, :attach_default_avatar
 
   attr_reader :password
 
-  has_one_attached :photo
+  has_one_attached :avatar
 
   def password=(password)
     @password = password 
@@ -40,6 +40,14 @@ class User < ApplicationRecord
     self.session_token = SecureRandom::urlsafe_base64
     self.save!
     self.session_token
+  end
+
+  private
+
+  def attach_default_avatar
+    unless self.avatar.attached?
+      self.avatar.attach(io: File.open(Rails.root.join("app", "assets", "images", "avatar.png")), filename: 'avatar.png')
+    end
   end
 
 

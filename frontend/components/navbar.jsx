@@ -13,7 +13,7 @@ const Navbar = (props) => {
       <div className="navbar-spacer"/>
 
         <div className="navbar-center">
-      <img className="profile-pic" src={props.currentUser.photoUrl} />
+      <img className="profile-pic" src={props.currentUser.avatarUrl} />
       <h3 className="welcome">Welcome, {props.currentUser.username}!</h3>
         </div>
 
