@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'; 
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -118,7 +119,7 @@ class SessionForm extends React.Component {
         
 
           <div className="bottom-authbox">
-            <p>{this.props.queryType} {this.props.navLink}</p>
+            <p>{this.props.queryType} <Link className="navlink" to={this.props.urlType}>{this.props.linkType}</Link></p>
           </div>
             
 
