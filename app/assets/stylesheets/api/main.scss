@@ -86,7 +86,7 @@ body {
   border-radius: 3px;
 }
 
-.feed-post-top {
+.feed-post-part {
   width: 600px;
   height: 60px;
   display: flex;
@@ -98,8 +98,21 @@ body {
   border-radius: 3px;
 }
 
+.feed-post-bottom {
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .avatar-name {
   font-weight: 550;
   padding-left: 5px;
+  margin: 5px;
+}
+
+.post-caption {
+  margin: 5px;
 }
 
