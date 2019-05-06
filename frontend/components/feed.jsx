@@ -1,9 +1,11 @@
 import React from 'react';
+import PostIndexContainer from './post_index_container';
 
 const Feed = (props) => {
   return (
     <div>
-    <input type="file"/>
+    <h3>FEED GOES HERE</h3>
+    <PostIndexContainer />
     </div >
   )
 };
