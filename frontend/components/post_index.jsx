@@ -8,16 +8,16 @@ class PostIndex extends React.Component {
   }
 
   render() {
+    // debugger
       return (
         <div>
           <ul>
             {this.props.posts.map(post => {
-              <li>
+              return <li>
                 <PostIndexItem post={post}/>
-              </li>
+              </li> 
           })}
           </ul>
-          <h3>post index</h3>
         </div>
       )
     }

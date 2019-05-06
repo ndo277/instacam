@@ -1,10 +1,9 @@
 import React from 'react';
 
 const PostIndexItem = (props) => {
-  debugger
   return (
     <div>
-      {props.post.id}
+      hello
     </div>
   )
 }

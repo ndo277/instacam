@@ -1,7 +1,7 @@
 import React from 'react';
 import PostIndexContainer from './post_index_container';
 
-const Feed = (props) => {
+const Feed = () => {
   return (
     <div>
     <h3>FEED GOES HERE</h3>

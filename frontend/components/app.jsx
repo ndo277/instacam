@@ -8,7 +8,7 @@ import MainPageContainer from './main_page_container';
 
 
 
-const App = (props) => (
+const App = () => (
   <div>
     <NavbarContainer />
     <Switch>
