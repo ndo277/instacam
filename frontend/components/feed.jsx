@@ -4,7 +4,6 @@ import PostIndexContainer from './post_index_container';
 const Feed = () => {
   return (
     <div>
-    <h3>FEED GOES HERE</h3>
     <PostIndexContainer />
     </div >
   )

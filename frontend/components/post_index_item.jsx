@@ -3,7 +3,7 @@ import React from 'react';
 const PostIndexItem = (props) => {
   return (
     <div>
-      {props.post.id}
+      <img className= "feed-image" src={props.post.photoUrl}/>
     </div>
   )
 }
