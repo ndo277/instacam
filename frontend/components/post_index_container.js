@@ -3,7 +3,7 @@ import PostIndex from './post_index';
 import {fetchPosts, deletePost} from '../actions/post_actions';
 
 const selectPosts = (posts) => {
-  return Object.keys(posts).map(id => posts[id]);
+  return Object.keys(posts).reverse().map(id => posts[id]);
 }
 
 const mapStateToProps = (state) => ({

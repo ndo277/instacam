@@ -6,12 +6,6 @@ class PostIndexItem extends React.Component {
     
     this.handleClick = this.handleClick.bind(this);
   }
-  // componentDidUpdate(){
-  //   // debugger
-  //   if (this.props.post.id){
-  //     fetchPosts();
-  //   }
-  // }
 
   handleClick(e) {
     e.preventDefault();
