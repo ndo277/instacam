@@ -6,6 +6,15 @@ export const fetchPosts = () => {
   });
 };
 
+export const deletePost = (id) => {
+  return $.ajax({
+    url: `api/posts/${id}`,
+    method: `DELETE`, 
+    error: (err) => console.log(err)
+  });
+};
+
+
 export const createPost = (formData) => {
   return $.ajax({
     url: `api/posts`,

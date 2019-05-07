@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import PostIndex from './post_index';
-import {fetchPosts} from '../actions/post_actions';
+import {fetchPosts, deletePost} from '../actions/post_actions';
 
 const selectPosts = (posts) => {
   return Object.keys(posts).map(id => posts[id]);
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchPosts: () => dispatch(fetchPosts())
+  fetchPosts: () => dispatch(fetchPosts()),
+  deletePost: (id) => dispatch(deletePost(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostIndex);

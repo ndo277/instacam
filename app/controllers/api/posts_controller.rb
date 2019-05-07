@@ -24,7 +24,15 @@ class Api::PostsController < ApplicationController
 
 
   def destroy 
+    @posts = Post.all
+    @post = Post.find(params[:id])
+    if @post.destroy
+      render :index
+    else
+      render json: ["Unable to delete"], status: 404
+    end
 
+    
   end
 
   private
