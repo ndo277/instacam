@@ -6,3 +6,14 @@ export const fetchPosts = () => {
   });
 };
 
+export const createPost = (formData) => {
+  return $.ajax({
+    url: `api/posts`,
+    method: `POST`, 
+    data: formData,
+    contentType: false,
+    processData: false,
+    error: (err) => console.log(err)
+  });
+};
+

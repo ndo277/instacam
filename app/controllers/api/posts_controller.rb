@@ -6,6 +6,7 @@ class Api::PostsController < ApplicationController
 
 
   def create 
+    @posts = Post.all
     @post = Post.new(post_params)
     @post.user_id = current_user.id
 
@@ -29,7 +30,7 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params 
-    params.require(:post).permit(:caption)
+    params.require(:post).permit(:caption, :photo)
   end
 
 
