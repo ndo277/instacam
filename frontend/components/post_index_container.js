@@ -4,7 +4,7 @@ import {fetchPosts, deletePost} from '../actions/post_actions';
 
 const selectPosts = (posts) => {
   return Object.keys(posts).reverse().map(id => posts[id]);
-}
+};
 
 const mapStateToProps = (state) => ({
   posts: selectPosts(state.entities.posts)

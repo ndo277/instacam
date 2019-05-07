@@ -5,7 +5,7 @@ const Navbar = (props) => {
     <div className="navbar">
 
         <a className="navbar-left" href="/">
-        <img className="logo-navbar" src="/images/logo-v.png" />
+        <img className="logo-navbar" src="/images/logo.png" />
       <div className="navbar-pipe" />
       <h1 className="logo-name-navbar">Instacam</h1>
         </a>

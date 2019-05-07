@@ -6,6 +6,14 @@ export const fetchPosts = () => {
   });
 };
 
+export const fetchPost = (id) => {
+  return $.ajax({
+    url: `api/posts/${id}`,
+    method: `GET`, 
+    error: (err) => console.log(err)
+  });
+};
+
 export const deletePost = (id) => {
   return $.ajax({
     url: `api/posts/${id}`,
