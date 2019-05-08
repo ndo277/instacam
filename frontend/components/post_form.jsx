@@ -40,7 +40,7 @@ class PostForm extends React.Component {
                onChange={this.handleInput}/>
          <input type="file"
                 onChange={this.handleFile} />
-        <input type="submit" value="Submit"/>
+        <input type="submit" value="Create post"/>
       
       </form>
     )
