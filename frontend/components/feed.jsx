@@ -5,7 +5,6 @@ import PostFormContainer from './post_form_container';
 const Feed = () => {
   return (
     <div>
-    <PostFormContainer />
     <PostIndexContainer />
     </div >
   )

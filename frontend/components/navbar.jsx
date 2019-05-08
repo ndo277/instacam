@@ -1,4 +1,5 @@
 import React from 'react';
+import PostFormContainer from './post_form_container';
 
 const Navbar = (props) => {
   const personalGreeting = () => (
@@ -19,6 +20,7 @@ const Navbar = (props) => {
 
       <div className="navbar-spacer" />
       <button className="nav-button" onClick={props.logout}>Log Out</button>
+      <PostFormContainer />
     </div>
   );
 
