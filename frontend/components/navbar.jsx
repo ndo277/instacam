@@ -19,9 +19,11 @@ const Navbar = (props) => {
         </div>
 
       <div className="navbar-spacer" />
-      <PostFormContainer />
 
-      <img onClick={props.logout} className="logout" src="/images/logout.png" alt="logout"/>
+      <div className="navbar-buttons">
+        <PostFormContainer />
+        <img onClick={props.logout} className="logout" src="/images/logout.png" alt="logout"/>
+      </div>
 
     </div>
   );

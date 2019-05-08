@@ -8,25 +8,28 @@ class PostForm extends React.Component {
     this.state = {
       caption: "",
       photoFile: null,
-      show: false
+      // show: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleFile = this.handleFile.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.hideForm = this.hideForm.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
+    // this.hideForm = this.hideForm.bind(this);
   }
 
-  handleClick(e) {
-    this.setState({ show: true }, () => 
-    document.addEventListener('click', this.hideForm));
-  }
+  // handleClick(e) {
+  //   this.setState({ show: true }, () => 
+  //   document.addEventListener('click', () => {
+  //     unless (target === ignore){
+  //     return this.hideForm; } 
+  //   }));
+  // }
 
-  hideForm(e) {
-    this.setState({ show: false }, () =>
-    document.removeEventListener('click', this.hideForm));
-  }
+  // hideForm(e) {
+  //   this.setState({ show: false }, () =>
+  //   document.removeEventListener('click', this.hideForm));
+  // }
 
   handleInput(e) {
     this.setState({caption: e.currentTarget.value});
@@ -59,8 +62,9 @@ class PostForm extends React.Component {
 
     return (
       <div className="upload-button-form">
-        {(this.state.show) ? uploadForm : null}
-        <img onClick={this.handleClick} className="upload-button" src="/images/upload.png" alt="upload" />
+        <img className="upload-button" src="/images/upload.png" alt="upload" />
+        {/* <img onClick={this.handleClick} className="upload-button" src="/images/upload.png" alt="upload" /> */}
+        {/* <div className="upload-form">{(this.state.show) ? uploadForm : null}</div> */}
       </div>
     )
   };
