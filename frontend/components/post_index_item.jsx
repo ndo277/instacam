@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class PostIndexItem extends React.Component {
   constructor (props){
@@ -19,7 +20,11 @@ class PostIndexItem extends React.Component {
       <div className="feed-post-part">
         <img className="profile-pic" src={this.props.post.avatarUrl} />
         <p className="avatar-name" >{this.props.post.username}</p>
-          <button className="delete-button" onClick={this.handleClick}>Delete</button>
+        <button className="delete-button" onClick={this.handleClick}>Delete</button>
+        
+        <Link to={`/posts/${this.props.post.id}`}>
+          <button>Go to post</button>
+        </Link>
       </div>
 
       <img className= "feed-image" src={this.props.post.photoUrl}/>

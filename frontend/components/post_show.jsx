@@ -14,12 +14,30 @@ class PostShow extends React.Component {
     let post = this.props.post;
     if (!post) return null;
     return(
-      <div>
-        <h3>POST SHOW</h3>
-        <img className="feed-image" src={this.props.post.photoUrl} />
-        <img className="profile-pic" src={this.props.post.avatarUrl} />
-        <p className="avatar-name" >{this.props.post.username}</p>
-        <p className="post-caption" >{this.props.post.caption}</p>
+      <div className="show-box">
+        <div className="show-item" >
+
+        <img className="show-image" src={this.props.post.photoUrl} />
+
+          <div className="show-side">
+        <div className="show-top">
+          <img className="profile-pic" src={this.props.post.avatarUrl} />
+          <p className="avatar-name" >{this.props.post.username}</p>
+        </div>
+
+        <div className="show-caption">
+          <img className="profile-pic" src={this.props.post.avatarUrl} />
+
+    
+          <span className="caption-name" >
+                <p><strong>{this.props.post.username}</strong>  {this.props.post.caption}</p>
+         </span>
+
+        </div>
+
+         </div>
+
+        </div>
       </div>
     )
   }

@@ -11,6 +11,9 @@ body {
   border-bottom: 1px solid #e6e6e6;
   background-color: white;
   height: 77px;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .nav-button {
@@ -82,8 +85,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 15px;
   border-radius: 3px;
+  padding-top: 80px;
 }
 
 .feed-post-part {
@@ -116,7 +119,4 @@ body {
   margin: 5px;
 }
 
-.delete-button {
-  margin-left: 400px;
-}
 
