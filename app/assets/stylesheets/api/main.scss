@@ -119,4 +119,29 @@ body {
   margin: 5px;
 }
 
+.logout {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.upload-button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  margin-top: 50px;
+}
+
+.upload-button-form {
+  display: flex;
+  flex-direction: row;
+}
+
 

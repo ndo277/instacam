@@ -20,7 +20,9 @@ const Navbar = (props) => {
 
       <div className="navbar-spacer" />
       <PostFormContainer />
-      <button className="nav-button" onClick={props.logout}>Log Out</button>
+
+      <img onClick={props.logout} className="logout" src="/images/logout.png" alt="logout"/>
+
     </div>
   );
 
