@@ -132,20 +132,20 @@ body {
   margin-right: 15px;
 }
 
-.upload {
+.upload-form {
+  position: absolute;
+  top: 100%;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   width: 100px;
 }
 
-.upload-form {
-  height: auto;
-  overflow: hidden auto;
-}
-
-.upload-button-form {
+.upload-container {
   display: flex;
   flex-direction: column;
+  position: relative;
+  display: inline-block;
 }
 
 .navbar-buttons {

@@ -8,28 +8,36 @@ class PostForm extends React.Component {
     this.state = {
       caption: "",
       photoFile: null,
-      // show: false
+      open: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleFile = this.handleFile.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
-    // this.hideForm = this.hideForm.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
-  // handleClick(e) {
-  //   this.setState({ show: true }, () => 
-  //   document.addEventListener('click', () => {
-  //     unless (target === ignore){
-  //     return this.hideForm; } 
-  //   }));
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+
+  // handleClickOutside (event) {
+  //   const container = React.createRef();
+  //   if (this.container.current && !this.container.current.contains(event.target)) {
+  //     this.setState({
+  //       open: false,
+  //     });
+  //   }
   // }
 
-  // hideForm(e) {
-  //   this.setState({ show: false }, () =>
-  //   document.removeEventListener('click', this.hideForm));
-  // }
+  handleButtonClick() {
+    this.setState({open: !this.state.open});
+  }
+
 
   handleInput(e) {
     this.setState({caption: e.currentTarget.value});
@@ -48,8 +56,8 @@ class PostForm extends React.Component {
 
   render() {
     const uploadForm = (
-      <div>
-        <form className="upload" onSubmit={this.handleSubmit}>
+      <div className="upload-form">
+        <form onSubmit={this.handleSubmit}>
           <input type="file"
             onChange={this.handleFile} />
           <input placeholder="Enter caption..."
@@ -61,10 +69,9 @@ class PostForm extends React.Component {
       </div>)
 
     return (
-      <div className="upload-button-form">
-        <img className="upload-button" src="/images/upload.png" alt="upload" />
-        {/* <img onClick={this.handleClick} className="upload-button" src="/images/upload.png" alt="upload" /> */}
-        {/* <div className="upload-form">{(this.state.show) ? uploadForm : null}</div> */}
+      <div className="upload-container" ref={this.container}>
+        <img onClick={this.handleButtonClick} className="upload-button" src="/images/upload.png" alt="upload" />
+        {this.state.open && uploadForm}
       </div>
     )
   };
