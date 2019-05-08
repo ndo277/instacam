@@ -125,11 +125,18 @@ body {
   cursor: pointer;
 }
 
+.upload-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .upload-button {
   width: 43px;
   height: 43px;
   cursor: pointer;
   margin-right: 15px;
+  margin-top: 4px;
 }
 
 .upload-form {
@@ -138,7 +145,11 @@ body {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  width: 100px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+  background-color: white;
 }
 
 .upload-container {

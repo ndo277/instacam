@@ -4,6 +4,8 @@ import {withRouter} from 'react-router';
 class PostForm extends React.Component {
   constructor (props) {
     super(props);
+
+    this.container = React.createRef();
     
     this.state = {
       caption: "",
@@ -25,14 +27,13 @@ class PostForm extends React.Component {
     document.removeEventListener("mousedown", this.handleClickOutside);
   }
 
-  // handleClickOutside (event) {
-  //   const container = React.createRef();
-  //   if (this.container.current && !this.container.current.contains(event.target)) {
-  //     this.setState({
-  //       open: false,
-  //     });
-  //   }
-  // }
+  handleClickOutside (e) {
+    if (this.container.current && !this.container.current.contains(e.target)) {
+      this.setState({
+        open: false,
+      });
+    }
+  }
 
   handleButtonClick() {
     this.setState({open: !this.state.open});
@@ -57,10 +58,11 @@ class PostForm extends React.Component {
   render() {
     const uploadForm = (
       <div className="upload-form">
+        <h3 className="upload-message">Upload a photo</h3>
         <form onSubmit={this.handleSubmit}>
           <input type="file"
             onChange={this.handleFile} />
-          <input placeholder="Enter caption..."
+          <input placeholder="Add caption..."
             type="text"
             value={this.state.caption}
             onChange={this.handleInput} />
