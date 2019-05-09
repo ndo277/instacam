@@ -14,7 +14,7 @@ const Modal = ({modal, closeModal, deletePost}) => {
   let component;
   switch (modal.modalType) {
     case 'options':
-      component = <PostOptions post={modal.post.data} deletePost={deletePost} />;
+      component = <PostOptions post={modal.post.data} deletePost={deletePost} closeModal={closeModal}/>;
       break;
     default:
       return null;

@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {deletePost} from '../actions/post_actions';
 
-const PostOptions = ({post, deletePost}) => {
+const PostOptions = ({post, deletePost, closeModal}) => {
 
   const handleClick = (e) => {
-    debugger
     e.preventDefault();
+    dispatch(closeModal());
     dispatch(deletePost(post.id));
-  }
+  };
 
   return(
     <div>

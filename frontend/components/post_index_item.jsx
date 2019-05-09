@@ -28,11 +28,6 @@ class PostIndexItem extends React.Component {
 
         <button onClick={this.openModal} >. . .</button>
 
-        {/* <button className="delete-button" onClick={this.handleClick}>Delete</button>
-        <Link to={`/posts/${this.props.post.id}`}>
-          <button>Go to post</button>
-        </Link> */}
-
       </div>
 
       <img className= "feed-image" src={this.props.post.photoUrl}/>
