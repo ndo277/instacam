@@ -9,13 +9,26 @@ const PostOptions = ({post, deletePost, closeModal}) => {
     dispatch(deletePost(post.id));
   };
 
+  const handleCancel = (e) => {
+    e.preventDefault();
+    dispatch(closeModal());
+  };
+
   return(
-    <div>
-      <h3>MODAL</h3>
-      <button className="delete-button" onClick={handleClick}>Delete</button>
+    <div className="options">
+      <button className="modal-button" onClick={handleClick}> 
+        <p className="delete-button">Delete</p>  
+      </button>
+
+      <div className="options-line" />
+      
       <Link to={`/posts/${post.id}`}>
-        <button>Go to post</button>
+        <button className="modal-button">Go to post</button>
       </Link>
+
+      <div className="options-line" />
+      
+      <button className="modal-button" onClick={handleCancel}>Cancel</button>
     </div>
   )
 }

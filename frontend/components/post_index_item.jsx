@@ -26,7 +26,7 @@ class PostIndexItem extends React.Component {
         <img className="profile-pic" src={this.props.post.avatarUrl} />
         <p className="avatar-name" >{this.props.post.username}</p>
 
-        <button onClick={this.openModal} >. . .</button>
+        <button className="options-button" onClick={this.openModal} >...</button>
 
       </div>
 

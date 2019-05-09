@@ -164,6 +164,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-right: 10px;
 }
 
 .modal-child {
@@ -172,10 +173,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px white;
-  height: 100px;
-  width: 100px;
+  width: 260px;
+  height: 144px;
   background-color: white;
-  border-radius: 15%;
+  border-radius: 10%;
 }
 
 .modal-background {
@@ -186,6 +187,44 @@ body {
   left: 0;
   background: rgba(0, 0, 0, 0.7);
   z-index: 10;
+}
+
+.modal-button {
+  width: 260px;
+  height: 48px;
+  background: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  outline: 0;
+}
+
+.delete-button {
+  color: #ED4956;
+}
+
+.options-button {
+  margin-left: 420px;
+  margin-bottom: 10px;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  outline: 0;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.options-line {
+  height: 1px;
+  width: 260px;
+  background-color: grey;
 }
 
 
