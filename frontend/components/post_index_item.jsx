@@ -32,10 +32,9 @@ class PostIndexItem extends React.Component {
 
       <img className= "feed-image" src={this.props.post.photoUrl}/>
 
-      <div className="feed-post-part" >
-        <p className="avatar-name" >{this.props.post.username}</p>
-        <p className="post-caption" >{this.props.post.caption}</p>
-      </div>
+        <span className="feed-post-part" >
+          <p className="more"><strong>{this.props.post.username}</strong>  {this.props.post.caption}</p>
+        </span>
 
       </div>
     )

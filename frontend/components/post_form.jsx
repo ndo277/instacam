@@ -10,7 +10,8 @@ class PostForm extends React.Component {
     this.state = {
       caption: "",
       photoFile: null,
-      open: false
+      open: false,
+      photoUrl: null
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -45,30 +46,53 @@ class PostForm extends React.Component {
   }
 
   handleFile(e) {
-    this.setState({photoFile: e.currentTarget.files[0]});
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({photoFile: file, photoUrl: fileReader.result});
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   handleSubmit(e) {
     const formData = new FormData();
     formData.append('post[caption]', this.state.caption);
     formData.append('post[photo]', this.state.photoFile);
-    this.props.createPost(formData).then(()=>this.props.update); 
+    this.props.createPost(formData).then(()=>this.props.update)
+      .then(()=> this.props.history.push("/"))
+    ; 
   }
 
   render() {
+
+    const preview = this.state.photoUrl 
+                  ?
+                  <div>
+                    <img src={this.state.photoUrl} />
+                    <textarea className="text-field" placeholder="Add caption..."
+                      type="text"
+                      value={this.state.caption}
+                      onChange={this.handleInput} />
+                    <br/>
+                    <input className="create-button" type="submit" value="Create post" />
+                  </div>
+                  :
+                  null;
+
     const uploadForm = (
       <div className="upload-form">
         <h3 className="upload-message">Upload a photo</h3>
-        <form onSubmit={this.handleSubmit}>
-          <input type="file"
+        <form className="upload-field" onSubmit={this.handleSubmit}>
+          <input className="file-name" type="file" 
             onChange={this.handleFile} />
-          <input placeholder="Add caption..."
-            type="text"
-            value={this.state.caption}
-            onChange={this.handleInput} />
-          <input type="submit" value="Create post" />
+
+          <div className="preview"> {preview} </div>
+
         </form>
       </div>)
+    
 
     return (
       <div className="upload-container" ref={this.container}>

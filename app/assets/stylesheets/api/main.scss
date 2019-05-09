@@ -91,7 +91,7 @@ body {
 
 .feed-post-part {
   width: 600px;
-  height: 60px;
+  height: 65px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -99,6 +99,8 @@ body {
   border: 1px solid #e6e6e6;
   background-color: white;
   border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .feed-post-bottom {
@@ -117,6 +119,7 @@ body {
 
 .post-caption {
   margin: 5px;
+  height: 50px;
 }
 
 .logout {
@@ -145,8 +148,7 @@ body {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  width: 200px;
-  height: 200px;
+  width: 260px;
   border: 1px solid rgba(0, 0, 0, 0.04);
   border-radius: 5%;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
@@ -227,4 +229,51 @@ body {
   background-color: grey;
 }
 
+.file-name {
+  width: 202px;
+  margin: 5px;
+}
 
+.preview img {
+  width: 250px;
+  height: 250px;
+  margin: 5px;
+}
+
+.text-field {
+  margin: 0 auto;
+  border: none;
+  width: 95%;
+  height: 100px;
+  display: flex;
+  justify-content: start;
+  outline-width: 0;
+  resize: none;
+}
+
+::placeholder {
+  text-align: center;
+}
+
+.create-button {
+  position: relative;
+  left: 25px;
+  bottom: 10px;
+  background-color: #3897f0;
+  border: 1px solid #3897f0;
+  border-radius: 4px;
+  color: #fff;
+  position: relative;
+  height: 30px;
+  width: 80%;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.more {
+  max-width: 95%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-left: 10px;
+}
