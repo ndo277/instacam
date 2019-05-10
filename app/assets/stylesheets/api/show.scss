@@ -84,7 +84,6 @@
   border: none;
   font-weight: 600;
   font-size: 20px;
-  margin-left: 265px;
   cursor: pointer;
   outline: none;
 }
@@ -107,6 +106,13 @@
 .show-page-buttons {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.show-name-button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   align-items: center;
 }
 

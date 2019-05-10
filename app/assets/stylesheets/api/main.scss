@@ -211,7 +211,7 @@ body {
 }
 
 .options-button {
-  margin-left: 420px;
+  margin-right: 5px;
   margin-bottom: 10px;
   border: none;
   font-size: 25px;
@@ -277,3 +277,12 @@ body {
   overflow: hidden;
   margin-left: 10px;
 }
+
+.post-name-options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+

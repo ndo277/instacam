@@ -28,10 +28,9 @@ class PostShow extends React.Component {
           <div className="show-side">
         <div className="show-top">
           <img className="profile-pic" src={this.props.post.avatarUrl} />
+          
+          <div className="show-name-button">
           <p className="avatar-name" >{this.props.post.username}</p>
-
-
-          <div className="show-page-buttons">
             <button className="show-button" onClick={this.openModal} >...</button>
           </div>
 
