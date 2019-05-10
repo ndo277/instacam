@@ -39,7 +39,8 @@ class EditPost extends React.Component {
           <input className="edit-modal-button" type="submit" value="Update post"/>
             <div className="edit-modal-sep" />
         </form>
-        
+        <button className="delete-show-button">Delete</button>
+        <div className="edit-modal-sep" />
         <button className="edit-modal-button" onClick={this.handleCancel}>Cancel</button>
       </div>
     )

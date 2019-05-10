@@ -50,27 +50,62 @@
   margin-left: 6px;
   border: none;
   width: 90%;
-  height: 63px;
+  height: 40px;
   display: flex;
   justify-content: start;
   outline-width: 0;
   resize: none;
+  text-align: center;
 }
 
 .edit-modal-button {
   width: 260px;
-  height: 35px;
+  height: 30px;
   background: none;
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
   border: none;
   outline: 0;
+  padding-bottom: 5px;
+}
+
+.edit-modal-button:hover {
+  color: blue;
 }
 
 .edit-modal-sep {
   height: 1px;
   width: 260px;
-  background-color: grey;
+  background-color:lightgrey;
+}
+
+.edit-button {
+  border: none;
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 265px;
+  cursor: pointer;
+  outline: none;
+}
+
+.delete-show-button {
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 215px;
+  margin-top: 5px;
+  color: red;
+  width: 100px;
+  margin: auto;
+  padding: 5px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.show-page-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 

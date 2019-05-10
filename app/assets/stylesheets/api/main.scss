@@ -202,6 +202,10 @@ body {
   outline: 0;
 }
 
+.modal-button:hover {
+  color: blue;
+}
+
 .delete-button {
   color: #ED4956;
 }
@@ -226,7 +230,7 @@ body {
 .options-line {
   height: 1px;
   width: 260px;
-  background-color: grey;
+  background-color: lightgrey;
 }
 
 .file-name {
