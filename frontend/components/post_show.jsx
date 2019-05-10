@@ -32,7 +32,7 @@ class PostShow extends React.Component {
 
 
           <div className="show-page-buttons">
-            <button className="edit-button" onClick={this.openModal} >...</button>
+            <button className="show-button" onClick={this.openModal} >...</button>
           </div>
 
         </div>

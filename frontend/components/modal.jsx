@@ -24,7 +24,8 @@ const Modal = ({modal, closeModal, deletePost, editPost}) => {
       component = <EditPost
                   post={modal.post.data}
                   updatePost={updatePost}
-                  closeModal={closeModal} />;
+                  closeModal={closeModal} 
+                  deletePost={deletePost} />;
       break;
     default:
       return null;

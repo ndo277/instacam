@@ -80,7 +80,7 @@
   background-color:lightgrey;
 }
 
-.edit-button {
+.show-button {
   border: none;
   font-weight: 600;
   font-size: 20px;
@@ -100,6 +100,7 @@
   margin: auto;
   padding: 5px;
   height: 30px;
+  outline: none;
   cursor: pointer;
 }
 
