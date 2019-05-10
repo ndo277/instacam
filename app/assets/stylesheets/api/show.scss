@@ -38,3 +38,39 @@
   width: 999px;
   margin: auto;
 }
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-field {
+  margin-top: 5px;
+  margin-left: 6px;
+  border: none;
+  width: 90%;
+  height: 63px;
+  display: flex;
+  justify-content: start;
+  outline-width: 0;
+  resize: none;
+}
+
+.edit-modal-button {
+  width: 260px;
+  height: 35px;
+  background: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  outline: 0;
+}
+
+.edit-modal-sep {
+  height: 1px;
+  width: 260px;
+  background-color: grey;
+}
+
