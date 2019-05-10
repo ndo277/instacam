@@ -1,13 +1,19 @@
 import React from 'react';
+import { openModal } from '../actions/modal_actions';
 
 class PostShow extends React.Component {
   constructor(props){
     super(props);
 
+    this.openModal = this.openModal.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchPost(this.props.match.params.postId);
+  }
+
+  openModal() {
+    dispatch(openModal('edit', this.props.post));
   }
 
   render(){
@@ -23,6 +29,9 @@ class PostShow extends React.Component {
         <div className="show-top">
           <img className="profile-pic" src={this.props.post.avatarUrl} />
           <p className="avatar-name" >{this.props.post.username}</p>
+
+            <button className="edit-button" onClick={this.openModal} >Edit Post</button>
+
         </div>
 
         <div className="show-caption">

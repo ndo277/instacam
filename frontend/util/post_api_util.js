@@ -34,3 +34,11 @@ export const createPost = (formData) => {
   });
 };
 
+export const updatePost = (post) =>{
+  return $.ajax({
+    url: `api/posts/${post.id}`,
+    method: `PATCH`,
+    data: {post}
+  });
+};
+

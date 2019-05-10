@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root'; 
-import {fetchPost} from './actions/post_actions';
+import {updatePost} from './actions/post_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.state = store.getState;
-  window.fetchPost = fetchPost;
+  window.updatePost = updatePost;
   window.dispatch = store.dispatch;
   
   

@@ -1,10 +1,11 @@
 import React from 'react';
 import PostOptions from './post_options';
 import {connect} from 'react-redux';
-import {deletePost} from '../actions/post_actions';
+import {updatePost, deletePost} from '../actions/post_actions';
 import {closeModal} from '../actions/modal_actions';
+import EditPost from './edit_post';
 
-const Modal = ({modal, closeModal, deletePost}) => {
+const Modal = ({modal, closeModal, deletePost, editPost}) => {
   if (!modal) return null;
 
   if (!modal.modalType) {
@@ -14,7 +15,16 @@ const Modal = ({modal, closeModal, deletePost}) => {
   let component;
   switch (modal.modalType) {
     case 'options':
-      component = <PostOptions post={modal.post.data} deletePost={deletePost} closeModal={closeModal}/>;
+      component = <PostOptions 
+                  post={modal.post.data} 
+                  deletePost={deletePost} 
+                  closeModal={closeModal} />;
+      break;
+    case 'edit':
+      component = <EditPost
+                  post={modal.post.data}
+                  updatePost={updatePost}
+                  closeModal={closeModal} />;
       break;
     default:
       return null;
@@ -39,7 +49,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     closeModal: () => dispatch(closeModal()),
-    deletePost: (id) => dispatch(deletePost(id))
+    deletePost: (id) => dispatch(deletePost(id)),
+    updatePost: (post) => dispatch(updatePost(post))
   };
 };
 

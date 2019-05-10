@@ -5,7 +5,6 @@ import Modal from './modal';
 const Feed = () => {
   return (
     <div>
-      <Modal />
       <PostIndexContainer />
     </div >
   )
