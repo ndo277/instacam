@@ -4,8 +4,6 @@ import {withRouter} from 'react-router';
 class PostForm extends React.Component {
   constructor (props) {
     super(props);
-
-    this.container = React.createRef();
     
     this.state = {
       caption: "",
@@ -13,6 +11,8 @@ class PostForm extends React.Component {
       open: false,
       photoUrl: null
     };
+
+    this.container = React.createRef();
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -60,7 +60,7 @@ class PostForm extends React.Component {
     const formData = new FormData();
     formData.append('post[caption]', this.state.caption);
     formData.append('post[photo]', this.state.photoFile);
-    this.props.createPost(formData).then(()=>this.props.update); 
+    this.props.createPost(formData).then(()=>this.props.update);
   }
 
   render() {

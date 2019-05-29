@@ -88,32 +88,32 @@ class SessionForm extends React.Component {
 
               <h3 className="form-type">{this.props.formType}</h3>
 
-              <button className="auth-button"  
-                onClick={this.handleDemoSubmit}>
-                Log in with Demo User
-              </button>
+            <input className="form-field" type="text"
+              placeholder="Username"
+              value={this.state.username}
+              onChange={this.update('username')}
+            />
+
+            <input className="form-field" type="password"
+              placeholder="Password"
+              value={this.state.password}
+              onChange={this.update('password')}
+            />
+
+            <input className="auth-button" type="submit" value={this.props.buttonType} />
+
+            <ul className="session-errors">{this.renderErrors()}</ul>
 
                   <div className="or-line-text">
                 <div className="or-line"/>
               <h3 className="or-text">OR</h3>
                 <div className="or-line" />
                   </div>
-            
-              <input className="form-field" type="text"
-                placeholder="Username"
-                value={this.state.username}
-                onChange={this.update('username')}
-              />
 
-            <input className="form-field" type="password"
-                placeholder="Password"
-                value={this.state.password}
-                onChange={this.update('password')}
-              />
-
-              <input className="auth-button" type="submit" value={this.props.buttonType}/>
-              
-              <ul className="session-errors">{this.renderErrors()}</ul>
+            <button className="auth-button"
+              onClick={this.handleDemoSubmit}>
+              Log in with Demo User
+              </button>
             
             </form>
         
