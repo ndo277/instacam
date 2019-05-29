@@ -1,5 +1,6 @@
 import React from 'react';
 import { openModal } from '../actions/modal_actions';
+import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 class PostShow extends React.Component {
   constructor(props){
@@ -19,6 +20,7 @@ class PostShow extends React.Component {
   render(){
     let post = this.props.post;
     if (!post) return null;
+    const optionsButton = (<button className="show-button" onClick={this.openModal} >...</button>)
     return(
       <div className="show-box">
         <div className="show-item" >
@@ -31,7 +33,7 @@ class PostShow extends React.Component {
           
           <div className="show-name-button">
           <p className="avatar-name" >{this.props.post.username}</p>
-            <button className="show-button" onClick={this.openModal} >...</button>
+            {this.props.post.user_id == this.props.currentUser.id && optionsButton}
           </div>
 
         </div>
