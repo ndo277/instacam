@@ -61,6 +61,7 @@ class PostForm extends React.Component {
     formData.append('post[caption]', this.state.caption);
     formData.append('post[photo]', this.state.photoFile);
     this.props.createPost(formData).then(()=>this.props.update);
+    this.setState({open: false, caption: "", photoUrl: null});
   }
 
   render() {
