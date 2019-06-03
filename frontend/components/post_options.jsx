@@ -15,7 +15,8 @@ const PostOptions = ({post, deletePost, closeModal}) => {
 
   return(
     <div className="options">
-      <button className="modal-button" onClick={handleClick}> 
+
+      <button className="modal-button-delete" onClick={handleClick}> 
         <p className="delete-button">Delete</p>  
       </button>
 
@@ -27,7 +28,7 @@ const PostOptions = ({post, deletePost, closeModal}) => {
 
       <div className="options-line" />
       
-      <button className="modal-button" onClick={handleCancel}>Cancel</button>
+      <button className="modal-button-cancel" onClick={handleCancel}>Cancel</button>
     </div>
   )
 }

@@ -42,13 +42,13 @@ class EditPost extends React.Component {
                     className="edit-field"
                     value={this.state.caption}
                     onChange={this.handleInput} />
-            <div className="edit-modal-sep" />
+            {/* <div className="edit-modal-sep" /> */}
           <input className="edit-modal-button" type="submit" value="Update post"/>
             <div className="edit-modal-sep" />
         </form>
         <button className="delete-show-button" onClick={this.handleDelete} >Delete</button>
         <div className="edit-modal-sep" />
-        <button className="edit-modal-button" onClick={this.handleCancel}>Cancel</button>
+        <button className="modal-button-cancel" onClick={this.handleCancel}>Cancel</button>
       </div>
     )
   }
