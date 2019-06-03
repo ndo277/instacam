@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class EditPost extends React.Component {
   constructor(props){
@@ -6,7 +7,7 @@ class EditPost extends React.Component {
 
     this.state = {
       caption: ""
-    }
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -30,7 +31,7 @@ class EditPost extends React.Component {
 
   handleDelete() {
     dispatch(this.props.closeModal());
-    dispatch(this.props.deletePost(this.props.post.id));
+    dispatch(this.props.deletePost(this.props.post.id).then(this.props.history.push('/')));
   }
 
   render() {
@@ -54,4 +55,4 @@ class EditPost extends React.Component {
 
 };
 
-export default EditPost;
+export default withRouter(EditPost);

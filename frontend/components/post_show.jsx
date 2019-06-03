@@ -1,6 +1,5 @@
 import React from 'react';
 import { openModal } from '../actions/modal_actions';
-import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 class PostShow extends React.Component {
   constructor(props){
