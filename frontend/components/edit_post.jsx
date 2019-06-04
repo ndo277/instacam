@@ -42,7 +42,7 @@ class EditPost extends React.Component {
                     className="edit-field"
                     value={this.state.caption}
                     onChange={this.handleInput} />
-            {/* <div className="edit-modal-sep" /> */}
+            
           <input className="edit-modal-button" type="submit" value="Update post"/>
             <div className="edit-modal-sep" />
         </form>
