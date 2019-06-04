@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root'; 
-import {updatePost} from './actions/post_actions';
+import {fetchUser} from './util/user_api_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.state = store.getState;
-  window.updatePost = updatePost;
+  window.fetchUser = fetchUser;
   window.dispatch = store.dispatch;
   
   
