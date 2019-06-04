@@ -6,6 +6,7 @@ import LoginFormContainer from './login_form_container';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import MainPageContainer from './main_page_container';
 import PostShowContainer from './post_show_container';
+import UserShowContainer from './user_show_container';
 import Modal from './modal';
 
 
@@ -18,6 +19,7 @@ const App = () => {
     <Switch>
       <Route exact path="/" component={MainPageContainer} />
       <ProtectedRoute path="/posts/:postId" component={PostShowContainer} />
+      <ProtectedRoute path="/users/:userId" component={UserShowContainer} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <Redirect to="/" />
