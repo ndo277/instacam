@@ -32,7 +32,7 @@ class PostShow extends React.Component {
           
           <div className="show-name-button">
           <p className="avatar-name" >{this.props.post.username}</p>
-            {this.props.post.user_id == this.props.currentUser.id && optionsButton}
+            {this.props.post.user_id === this.props.currentUser.id && optionsButton}
           </div>
 
         </div>

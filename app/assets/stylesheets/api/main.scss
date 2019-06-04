@@ -199,6 +199,19 @@ body {
   outline: 0;
 }
 
+.modal-button-gtp {
+  border-top-left-radius: 20%;
+  border-top-right-radius: 20%;
+  border: 1px white;
+  background-color: white;
+  width: 260px;
+  height: 48px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  outline: 0;
+}
+
 .modal-button-cancel {
   border: 1px white;
   background-color: white;
