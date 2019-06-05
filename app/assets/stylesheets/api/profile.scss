@@ -1,0 +1,28 @@
+.user-profile-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+}
+
+.image-grid {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.user-profile-images {
+  width: 293px;
+  height: 293px;
+  margin-bottom: 28px;
+}
+
+.user-prof-top {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 44px;
+}
+

@@ -17,20 +17,24 @@ class UserProfile extends React.Component {
     let posts = this.props.posts;
     if (!user) return null;
     let userPosts = posts.filter(post => post.user_id == this.props.userId);
-    // debugger
     return(
       <div>
         <br/><br/><br/>
         <h1>USER PROFILE UNDER CONSTRUCTION</h1> 
-        {user.username}
-        <img src={user.avatarUrl} alt="avatar"/>
-        <ul>
+
+        <div className="user-prof-top">
+          <img className="user-profile-avatar" src={user.avatarUrl} alt="avatar" />
+          <h2>{user.username}</h2>
+        </div>
+
+        <ul className="image-grid">
         {userPosts.map(post => 
-          <li key={post.id}>
-            <img src={post.photoUrl} alt="image"/> 
+          <li className="post-index-list" key={post.id}>
+            <img className="user-profile-images" src={post.photoUrl} alt="image"/> 
           </li>
         )}
         </ul>
+
       </div>
     )
   }
