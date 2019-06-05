@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import UserShow from './user_show';
+import UserProfile from './user_profile';
 import {fetchPosts} from '../actions/post_actions';
 import {fetchUser} from '../actions/user_actions';
 
@@ -12,7 +12,6 @@ const mapStateToProps = (state, ownProps) => {
   const userId = ownProps.match.params.userId;
   const user = state.entities.users[userId];
   const posts = selectPosts(state.entities.posts);
-  // const userPosts = posts.filter(post => post.user_id === userId);
   return {currentUser, userId, user, posts};
 };
 
@@ -21,6 +20,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchUser: (id) => dispatch(fetchUser(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserShow);
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
 
 

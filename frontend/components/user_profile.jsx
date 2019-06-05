@@ -1,6 +1,6 @@
 import React from 'react';
 
-class UserShow extends React.Component {
+class UserProfile extends React.Component {
   constructor(props){
     super(props);
 
@@ -26,8 +26,7 @@ class UserShow extends React.Component {
         <img src={user.avatarUrl} alt="avatar"/>
         <ul>
         {userPosts.map(post => 
-          <li>
-            {post.caption}
+          <li key={post.id}>
             <img src={post.photoUrl} alt="image"/> 
           </li>
         )}
@@ -37,4 +36,4 @@ class UserShow extends React.Component {
   }
 }
 
-export default UserShow;
+export default UserProfile;
