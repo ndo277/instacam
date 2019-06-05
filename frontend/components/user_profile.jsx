@@ -19,12 +19,16 @@ class UserProfile extends React.Component {
     let userPosts = posts.filter(post => post.user_id == this.props.userId);
     return(
       <div>
-        <br/><br/><br/>
-        <h1>USER PROFILE UNDER CONSTRUCTION</h1> 
-
         <div className="user-prof-top">
           <img className="user-profile-avatar" src={user.avatarUrl} alt="avatar" />
-          <h2>{user.username}</h2>
+          
+          <div className="profile-desc" >
+            <h2>{user.username}</h2>
+            <h2>{user.display_name}</h2>
+            <h2>{user.bio}</h2>
+            <h2>{user.website}</h2>
+          </div>
+          
         </div>
 
         <ul className="image-grid">
