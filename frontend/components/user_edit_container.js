@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UserEdit from './user_edit';
-import {fetchUser} from '../actions/user_actions';
+import {fetchUser, updateUser} from '../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const currentUser = state.entities.users[state.session.id];
@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUser: (id) => dispatch(fetchUser(id))
+  fetchUser: (id) => dispatch(fetchUser(id)),
+  updateUser: (user) => dispatch(updateUser(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserEdit);
