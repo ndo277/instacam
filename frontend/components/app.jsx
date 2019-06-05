@@ -7,6 +7,7 @@ import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import MainPageContainer from './main_page_container';
 import PostShowContainer from './post_show_container';
 import UserProfileContainer from './user_profile_container';
+import UserEditContainer from './user_edit_container';
 import Modal from './modal';
 
 
@@ -19,6 +20,7 @@ const App = () => {
     <Switch>
       <Route exact path="/" component={MainPageContainer} />
       <ProtectedRoute path="/posts/:postId" component={PostShowContainer} />
+      <ProtectedRoute path="/users/:userId/edit" component={UserEditContainer} />
       <ProtectedRoute path="/users/:userId" component={UserProfileContainer} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
