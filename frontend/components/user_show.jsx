@@ -9,12 +9,15 @@ class UserShow extends React.Component {
 
   componentDidMount(){
     this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchPosts();
   }
 
   render(){
     let user = this.props.user;
+    let posts = this.props.posts;
     if (!user) return null;
-  
+    let userPosts = posts.filter(post => post.user_id == this.props.userId);
+    // debugger
     return(
       <div>
         <br/><br/><br/>
@@ -22,11 +25,12 @@ class UserShow extends React.Component {
         {user.username}
         <img src={user.avatarUrl} alt="avatar"/>
         <ul>
-          {this.props.user.posts.map((post) => {
-            return <li>
-              {post.caption}
-            </li>
-          })}
+        {userPosts.map(post => 
+          <li>
+            {post.caption}
+            <img src={post.photoUrl} alt="image"/> 
+          </li>
+        )}
         </ul>
       </div>
     )
