@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router';
+import { Link } from 'react-router-dom';
 
 class UserEdit extends React.Component {
   constructor(props){
@@ -25,9 +26,7 @@ class UserEdit extends React.Component {
     currentUser.username = this.state.username;
     currentUser.website = this.state.website;
     currentUser.bio = this.state.bio;
-    this.props.updateUser(currentUser).then(() => {
-      this.props.history.push(`/users/${currentUser.id}`);
-    });
+    this.props.updateUser(currentUser);
   }
 
   update(field) {
@@ -46,7 +45,6 @@ class UserEdit extends React.Component {
         <img src={currentUser.avatarUrl} alt="avatar"/>
         <h2>{currentUser.username}</h2>
 
-        <form onSubmit={this.handleSubmit}>
           <h3>Name</h3>
             <input value={this.state.name} onChange={this.update('name')} type="text"/>
           <h3>Username</h3>
@@ -56,8 +54,8 @@ class UserEdit extends React.Component {
           <h3>Bio</h3>
           <input value={this.state.bio} onChange={this.update('bio')} type="text"/>
             <br/>
-          <input type="submit" value="Submit"/>
-        </form>
+        <Link to={`/users/${currentUser.id}/`} onClick={this.handleSubmit}>Submit</Link>
+   
 
       </div>
     )
