@@ -8,8 +8,11 @@ class UploadAvatar extends React.Component {
 
   render() {
     return(
-      <div>
-        <h1>UPLOAD AVATAR</h1>
+      <div className="upload-avatar-modal" >
+        <h1>Change Profile Photo</h1>
+        <button>Upload Photo</button>
+        <button>Remove Current Photo</button>
+        <button>Cancel</button>
       </div>
     )
   }
