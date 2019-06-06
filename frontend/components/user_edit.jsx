@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 import { Link } from 'react-router-dom';
+import { openModal } from '../actions/modal_actions';
 
 class UserEdit extends React.Component {
   constructor(props){
@@ -14,10 +15,15 @@ class UserEdit extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.openModal = this.openModal.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchUser(this.props.currentUser.id);
+  }
+
+  openModal() {
+    dispatch(openModal('pic'));
   }
 
   handleSubmit(){
@@ -44,6 +50,10 @@ class UserEdit extends React.Component {
         <h1>EDIT FORM</h1>
         <img src={currentUser.avatarUrl} alt="avatar"/>
         <h2>{currentUser.username}</h2>
+
+        <button onClick={this.openModal}>Change Profile Photo</button>
+
+        {/* <Link to="" onClick={this.openModal} >Change Profile Photo</Link> */}
 
           <h3>Name</h3>
             <input value={this.state.name} onChange={this.update('name')} type="text"/>

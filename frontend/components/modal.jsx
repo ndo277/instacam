@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {updatePost, deletePost} from '../actions/post_actions';
 import {closeModal} from '../actions/modal_actions';
 import EditPost from './edit_post';
+import UploadAvatar from './upload_avatar';
 
 const Modal = ({modal, closeModal, deletePost, currentUser}) => {
   if (!modal) return null;
@@ -27,6 +28,9 @@ const Modal = ({modal, closeModal, deletePost, currentUser}) => {
                   updatePost={updatePost}
                   closeModal={closeModal} 
                   deletePost={deletePost} />;
+      break;
+    case 'pic':
+      component = <UploadAvatar />;
       break;
     default:
       return null;
