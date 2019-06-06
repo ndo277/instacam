@@ -48,12 +48,10 @@ class UserEdit extends React.Component {
       <div>
         <br/><br/><br/>
         <h1>EDIT FORM</h1>
-        <img src={currentUser.avatarUrl} alt="avatar"/>
+        <img className="user-profile-avatar" src={currentUser.avatarUrl} alt="avatar"/>
         <h2>{currentUser.username}</h2>
 
         <button onClick={this.openModal}>Change Profile Photo</button>
-
-        {/* <Link to="" onClick={this.openModal} >Change Profile Photo</Link> */}
 
           <h3>Name</h3>
             <input value={this.state.name} onChange={this.update('name')} type="text"/>
