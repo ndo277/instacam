@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class UserProfile extends React.Component {
   constructor(props){
     super(props);
-
 
   }
 
@@ -28,6 +28,8 @@ class UserProfile extends React.Component {
             <h2>{user.bio}</h2>
             <h2>{user.website}</h2>
           </div>
+
+          <Link to={`/users/${this.props.currentUser.id}/edit`} >Edit Profile</Link>
           
         </div>
 
