@@ -12,9 +12,18 @@ class UserProfile extends React.Component {
     this.props.fetchPosts();
   }
 
+  
+
   render(){
-    let user = this.props.user;
-    let posts = this.props.posts;
+    const user = this.props.user;
+    const posts = this.props.posts;
+    const editProfile = (
+        <div>
+          <Link to={`/users/${this.props.currentUser.id}/edit`} >Edit Profile</Link>
+        </div>
+      )
+
+
     if (!user) return null;
     let userPosts = posts.filter(post => post.user_id == this.props.userId);
     return(
@@ -29,7 +38,7 @@ class UserProfile extends React.Component {
             <h2>{user.website}</h2>
           </div>
 
-          <Link to={`/users/${this.props.currentUser.id}/edit`} >Edit Profile</Link>
+          {user.id === this.props.currentUser.id && editProfile}
           
         </div>
 
