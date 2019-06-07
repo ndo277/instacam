@@ -2,6 +2,7 @@ import React from 'react';
 import PostFormContainer from './post_form_container';
 
 const Navbar = (props) => {
+
   const personalGreeting = () => (
     <div className="navbar">
 

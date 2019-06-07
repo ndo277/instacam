@@ -7,7 +7,8 @@ const selectPosts = (posts) => {
 };
 
 const mapStateToProps = (state) => ({
-  posts: selectPosts(state.entities.posts)
+  posts: selectPosts(state.entities.posts),
+  currentUser: state.entities.users[state.session.id]
 });
 
 const mapDispatchToProps = (dispatch) => ({

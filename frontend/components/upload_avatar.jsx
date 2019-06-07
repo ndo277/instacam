@@ -16,20 +16,10 @@ class UploadAvatar extends React.Component {
     this.setState({avatarFile: file}, () => {
       const formData = new FormData();
       formData.append('user[avatar]', this.state.avatarFile);
-      // formData.append('user[id]', this.props.currentUser.id);
-      // console.log(formData);
-      // debugger
       this.props.updateUserAvatar(this.props.currentUser.id, formData);
       this.props.closeModal();
       this.setState({ avatarFile: null });
     });
-    // debugger;
-    // const formData = new FormData();
-    // formData.append('user[avatar]', this.state.avatarFile);
-    // formData.append('user[id]', this.props.currentUser.id);
-    // debugger;
-    // dispatch(updateUser(formData));
-    // this.setState({ avatarFile: null });
   }
 
   render() {

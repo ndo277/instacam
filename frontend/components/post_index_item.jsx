@@ -1,5 +1,6 @@
 import React from 'react';
 import {openModal} from '../actions/modal_actions';
+import {withRouter} from 'react-router';
 
 class PostIndexItem extends React.Component {
   constructor (props){
@@ -11,7 +12,7 @@ class PostIndexItem extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    this.props.deletePost(this.props.post.id);
+    this.props.history.push(`/users/${this.props.post.user_id}`);
   }
 
   openModal(){
@@ -23,10 +24,10 @@ class PostIndexItem extends React.Component {
       <div className="feed-post" >
 
       <div className="feed-post-part">
-        <img className="profile-pic" src={this.props.post.avatarUrl} />
+        <img onClick={this.handleClick} className="profile-pic" src={this.props.post.avatarUrl} />
 
           <div className="post-name-options">
-        <p className="avatar-name" >{this.props.post.username}</p>
+            <p onClick={this.handleClick} className="avatar-name" >{this.props.post.username}</p>
         <button className="options-button" onClick={this.openModal} >...</button>
           </div>
 
@@ -43,4 +44,4 @@ class PostIndexItem extends React.Component {
   }
 }
 
-export default PostIndexItem;
+export default withRouter(PostIndexItem);
