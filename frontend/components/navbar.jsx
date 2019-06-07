@@ -1,7 +1,13 @@
 import React from 'react';
 import PostFormContainer from './post_form_container';
+import {withRouter} from 'react-router';
 
 const Navbar = (props) => {
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    props.history.push(`/users/${props.currentUser.id}`);
+  };
 
   const personalGreeting = () => (
     <div className="navbar">
@@ -15,7 +21,7 @@ const Navbar = (props) => {
       <div className="navbar-spacer"/>
 
         <div className="navbar-center">
-      <img className="profile-pic" src={props.currentUser.avatarUrl} />
+      <img onClick={handleClick} className="profile-pic" src={props.currentUser.avatarUrl} />
       <h3 className="welcome">Welcome, {props.currentUser.username}!</h3>
         </div>
 
@@ -33,4 +39,4 @@ const Navbar = (props) => {
 
 }; 
 
-export default Navbar;
+export default withRouter(Navbar);
