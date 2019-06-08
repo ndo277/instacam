@@ -19,7 +19,7 @@ class UserProfile extends React.Component {
     const posts = this.props.posts;
     const editProfile = (
         <div>
-          <Link to={`/users/${this.props.currentUser.id}/edit`} >Edit Profile</Link>
+        <Link to={`/users/${this.props.currentUser.id}/edit`} className="edit-profile">Edit Profile</Link>
         </div>
       )
 
@@ -43,12 +43,12 @@ class UserProfile extends React.Component {
               {user.id === this.props.currentUser.id && editProfile}
             </div>
 
-            <div> 
+            <div className="post-count"> 
               <strong>{postCount}</strong> posts
             </div>
 
             <div className="display-name">{user.display_name}</div>
-            <div>{user.bio}</div>
+            <div className="bio">{user.bio}</div>
             <a href={`http://${user.website}`} className="user-website">{user.website}</a> 
           </div>
           

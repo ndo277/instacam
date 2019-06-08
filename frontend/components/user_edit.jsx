@@ -27,7 +27,7 @@ class UserEdit extends React.Component {
   }
 
   handleSubmit(){
-    const currentUser = this.props.currentUser;
+    let currentUser = this.props.currentUser;
     currentUser.display_name = this.state.name;
     currentUser.username = this.state.username;
     currentUser.website = this.state.website;
@@ -54,13 +54,13 @@ class UserEdit extends React.Component {
         <button onClick={this.openModal}>Change Profile Photo</button>
 
           <h3>Name</h3>
-            <input value={this.state.name} onChange={this.update('name')} type="text"/>
+            <input value={currentUser.display_name} onChange={this.update('name')} type="text"/>
           <h3>Username</h3>
-          <input value={this.state.username} onChange={this.update('username')} type="text"/>
+          <input value={currentUser.username} onChange={this.update('username')} type="text"/>
           <h3>Website</h3>
-          <input value={this.state.website} onChange={this.update('website')} type="text"/>
+          <input value={currentUser.website} onChange={this.update('website')} type="text"/>
           <h3>Bio</h3>
-          <input value={this.state.bio} onChange={this.update('bio')} type="text"/>
+          <input value={currentUser.bio} onChange={this.update('bio')} type="text"/>
             <br/>
         <Link to={`/users/${currentUser.id}/`} onClick={this.handleSubmit}>Submit</Link>
    
