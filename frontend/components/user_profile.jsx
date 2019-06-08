@@ -15,7 +15,9 @@ class UserProfile extends React.Component {
   }
 
   openModal() {
-    dispatch(openModal('pic'));
+    if (this.props.user.id === this.props.currentUser.id){
+      dispatch(openModal('pic'));
+    }
   }
 
 
