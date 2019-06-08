@@ -39,7 +39,6 @@ class PostShow extends React.Component {
 
         <div className="show-caption">
           <img className="profile-pic" src={this.props.post.avatarUrl} />
-
     
           <span className="caption-name" >
                 <p><strong>{this.props.post.username}</strong>  {this.props.post.caption}</p>

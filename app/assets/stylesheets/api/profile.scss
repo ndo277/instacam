@@ -4,6 +4,13 @@
   border-radius: 100%;
 }
 
+.user-avatar-container{
+  width: 275px;
+  height: 170px;
+  display: flex;
+  align-items: center;
+}
+
 .image-grid {
   width: 70%;
   margin: auto;
@@ -20,6 +27,7 @@
 
 .user-prof-top {
   width: 50%;
+  height: 170px;
   margin: auto;
   display: flex;
   flex-direction: row;
@@ -47,3 +55,18 @@
   display: none;
 }
 
+.display-name {
+  font-weight: bold;
+}
+
+.user-website {
+  font-weight: bold;
+  text-decoration: none;
+  color: #305591;
+} 
+
+.username-edit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

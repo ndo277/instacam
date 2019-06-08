@@ -26,19 +26,32 @@ class UserProfile extends React.Component {
 
     if (!user) return null;
     let userPosts = posts.filter(post => post.user_id == this.props.userId);
+    let postCount = userPosts.length;
+
     return(
       <div>
         <div className="user-prof-top">
-          <img className="user-profile-avatar" src={user.avatarUrl} alt="avatar" />
+
+          <div className="user-avatar-container">
+            <img className="user-profile-avatar" src={user.avatarUrl} alt="avatar" />
+          </div>
           
           <div className="profile-desc" >
-            <h2>{user.username}</h2>
-            <h2>{user.display_name}</h2>
-            <h2>{user.bio}</h2>
-            <h2>{user.website}</h2>
-          </div>
 
-          {user.id === this.props.currentUser.id && editProfile}
+            <div className="username-edit">
+              <h2>{user.username}</h2>
+              {user.id === this.props.currentUser.id && editProfile}
+            </div>
+
+            <div> 
+              <strong>{postCount}</strong> posts
+            </div>
+
+            <div className="display-name">{user.display_name}</div>
+            <div>{user.bio}</div>
+            <a href={`http://${user.website}`} className="user-website">{user.website}</a> 
+          </div>
+          
           
         </div>
 
