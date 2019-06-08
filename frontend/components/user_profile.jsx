@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { openModal } from '../actions/modal_actions';
 
 class UserProfile extends React.Component {
   constructor(props){
     super(props);
 
+    this.openModal = this.openModal.bind(this);
   }
 
   componentDidMount(){
@@ -12,7 +14,10 @@ class UserProfile extends React.Component {
     this.props.fetchPosts();
   }
 
-  
+  openModal() {
+    dispatch(openModal('pic'));
+  }
+
 
   render(){
     const user = this.props.user;
@@ -33,7 +38,7 @@ class UserProfile extends React.Component {
         <div className="user-prof-top">
 
           <div className="user-avatar-container">
-            <img className="user-profile-avatar" src={user.avatarUrl} alt="avatar" />
+            <img onClick={this.openModal} className="user-profile-avatar" src={user.avatarUrl} alt="avatar" />
           </div>
           
           <div className="profile-desc" >
