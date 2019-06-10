@@ -23,12 +23,25 @@ class UserProfile extends React.Component {
 
   render(){
     const user = this.props.user;
+    if (!user) return null;
     const posts = this.props.posts;
     const editProfile = (
         <div>
         <Link to={`/users/${this.props.currentUser.id}/edit`} className="edit-profile">Edit Profile</Link>
         </div>
       )
+
+    const userAvatar1 = (
+      <div>
+        <img onClick={this.openModal} className="user-profile-avatar1" src={user.avatarUrl} alt="avatar" />
+      </div>
+    )
+
+    const userAvatar2 = (
+      <div>
+        <img onClick={this.openModal} className="user-profile-avatar2" src={user.avatarUrl} alt="avatar" />
+      </div>
+    )
 
 
     if (!user) return null;
@@ -40,7 +53,7 @@ class UserProfile extends React.Component {
         <div className="user-prof-top">
 
           <div className="user-avatar-container">
-            <img onClick={this.openModal} className="user-profile-avatar" src={user.avatarUrl} alt="avatar" />
+            {this.props.user.id === this.props.currentUser.id ? userAvatar1 : userAvatar2}
           </div>
           
           <div className="profile-desc" >
