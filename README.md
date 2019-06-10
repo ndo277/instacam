@@ -6,6 +6,8 @@
 
 Instacam is a single-page web application for users to upload and share their own photos, in the same vein as Instagram. Users are able to navigate a seamless website to browse and check out other people's photos. Users can also conveninently post their own photos from anywhere on the site. Every user has their own profile page as well, where they can upload their own avatar picture and see an index of their post history.
 
+![](assets/images/demo-ic.gif)
+
 
 ## Technologies
 
