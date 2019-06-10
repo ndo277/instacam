@@ -45,23 +45,39 @@ class UserEdit extends React.Component {
     let currentUser = this.props.currentUser;
 
     return(
-      <div>
-        <br/><br/><br/>
-        <h1>EDIT FORM</h1>
-        <img className="user-profile-avatar" src={currentUser.avatarUrl} alt="avatar"/>
-        <h2>{currentUser.username}</h2>
+      <div className="user-edit-form">
 
-        <button onClick={this.openModal}>Change Profile Photo</button>
+        <div className="pic-name-upload">
+          <img className="user-edit-avatar" src={currentUser.avatarUrl} alt="avatar"/>
 
+          <div className="name-upload">
+            <h3>{currentUser.username}</h3>
+            <button onClick={this.openModal}>Change Profile Photo</button>
+          </div>
+
+        </div>
+
+        <div className="name-field">
           <h3>Name</h3>
-            <input value={currentUser.display_name} onChange={this.update('name')} type="text"/>
+            <input value={this.state.name} onChange={this.update('name')} type="text"/>
+        </div>
+
+        <div className="name-field">
           <h3>Username</h3>
-          <input value={currentUser.username} onChange={this.update('username')} type="text"/>
+          <input value={this.state.username} onChange={this.update('username')} type="text"/>
+        </div>
+
+        <div className="name-field">
           <h3>Website</h3>
-          <input value={currentUser.website} onChange={this.update('website')} type="text"/>
+          <input value={this.state.website} onChange={this.update('website')} type="text"/>
+        </div>
+
+        <div className="name-field">
           <h3>Bio</h3>
-          <input value={currentUser.bio} onChange={this.update('bio')} type="text"/>
-            <br/>
+          <input value={this.state.bio} onChange={this.update('bio')} type="text"/>
+        </div>
+
+        <br/>
         <Link to={`/users/${currentUser.id}/`} onClick={this.handleSubmit}>Submit</Link>
    
 
