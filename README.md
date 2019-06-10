@@ -2,12 +2,16 @@
 
 [Instacam Live](https://instacam-1.herokuapp.com/)
 
-Instacam, a clone of Instagram, is a social media site where users can publicly upload photos and share them with other users. Users can add captions to their photos, edit their captions, and delete the image posts.
+## Background and Overview
+
+Instacam is a single-page web application for users to upload and share their own photos, in the same vein as Instagram. Users are able to navigate a seamless website to browse and check out other people's photos. Users can also conveninently post their own photos from anywhere on the site. Every user has their own profile page as well, where they can upload their own avatar picture and see an index of their post history.
 
 
 ## Technologies
 
-Instacam is built with Ruby on Rails MVC architecture and hosted on Heroku. Instacam uses React to render a single-page web app and Redux to manage frontend state and flow of data. Postgres manages the backend database. AWS S3 is used to store uploaded images.  
+Instacam is built with Ruby on Rails MVC architecture and hosted on Heroku. Instacam uses React to render a single-page web app and Redux to manage frontend state and flow of data. PostgreSQL is used to manage the backend database. AWS S3 is used to store uploaded images in the cloud.  
+
+
 
 
 ## Features
