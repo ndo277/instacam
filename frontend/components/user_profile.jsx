@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { openModal } from '../actions/modal_actions';
+import { withRouter } from 'react-router';
+
 
 class UserProfile extends React.Component {
   constructor(props){
     super(props);
 
     this.openModal = this.openModal.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount(){
@@ -78,7 +81,7 @@ class UserProfile extends React.Component {
         <ul className="image-grid">
         {userPosts.map(post => 
           <li className="post-index-list" key={post.id}>
-            <img className="user-profile-images" src={post.photoUrl} alt="image"/> 
+            <img onClick={() => this.props.history.push(`/posts/${post.id}`)} className="user-profile-images" src={post.photoUrl} alt="image"/> 
           </li>
         )}
         </ul>
@@ -88,4 +91,4 @@ class UserProfile extends React.Component {
   }
 }
 
-export default UserProfile;
+export default withRouter(UserProfile);
