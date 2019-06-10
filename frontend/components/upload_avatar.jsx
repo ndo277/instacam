@@ -9,6 +9,7 @@ class UploadAvatar extends React.Component {
     };
 
     this.handleFile = this.handleFile.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   handleFile(e) {
@@ -22,17 +23,19 @@ class UploadAvatar extends React.Component {
     });
   }
 
+  handleCancel(){
+    this.props.closeModal();
+  }
+
   render() {
     return(
       <div className="upload-avatar-modal" >
-        <h1>Change Profile Photo</h1>
+        <h3 className="change-title">Change Profile Photo</h3>
 
         <label htmlFor="file-upload" className="file-upload">Upload Photo</label>
         <input onChange={this.handleFile} id="file-upload" type="file" className="file-default"/>
   
-
-        <button>Remove Current Photo</button>
-        <button>Cancel</button>
+        <button onClick={this.handleCancel} className="modal-button">Cancel</button>
       </div>
     )
   }
