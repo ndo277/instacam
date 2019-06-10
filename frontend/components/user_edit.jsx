@@ -51,34 +51,34 @@ class UserEdit extends React.Component {
           <img className="user-edit-avatar" src={currentUser.avatarUrl} alt="avatar"/>
 
           <div className="name-upload">
-            <h3>{currentUser.username}</h3>
-            <button onClick={this.openModal}>Change Profile Photo</button>
+            <h3 className="name">{currentUser.username}</h3>
+            <button onClick={this.openModal} className="change-button">Change Profile Photo</button>
           </div>
 
         </div>
 
         <div className="name-field">
-          <h3>Name</h3>
-            <input value={this.state.name} onChange={this.update('name')} type="text"/>
+          <h3 >Name</h3>
+            <input className="edit-name-field" value={this.state.name} onChange={this.update('name')} type="text"/>
         </div>
 
         <div className="name-field">
           <h3>Username</h3>
-          <input value={this.state.username} onChange={this.update('username')} type="text"/>
+          <input className="edit-name-field" value={this.state.username} onChange={this.update('username')} type="text"/>
         </div>
 
         <div className="name-field">
           <h3>Website</h3>
-          <input value={this.state.website} onChange={this.update('website')} type="text"/>
+          <input className="edit-name-field" value={this.state.website} onChange={this.update('website')} type="text"/>
         </div>
 
         <div className="name-field">
           <h3>Bio</h3>
-          <input value={this.state.bio} onChange={this.update('bio')} type="text"/>
+          <input className="edit-name-field" value={this.state.bio} onChange={this.update('bio')} type="text"/>
         </div>
 
         <br/>
-        <Link to={`/users/${currentUser.id}/`} onClick={this.handleSubmit}>Submit</Link>
+        <Link className="submit-button" to={`/users/${currentUser.id}/`} onClick={this.handleSubmit}>Submit</Link>
    
 
       </div>

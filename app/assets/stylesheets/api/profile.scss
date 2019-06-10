@@ -136,6 +136,8 @@
 .user-edit-avatar {
   width: 38px;
   height: 38px;
+  border: 1px solid #dbdbdb;
+  border-radius: 100%;
 }
 
 .user-edit-form {
@@ -151,20 +153,55 @@
   border-radius: 1%;
 }
 
+.name {
+  margin: 0;
+}
+
 .pic-name-upload {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .name-upload {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 20px;
 }
 
 .name-field {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.change-button {
+  border: none;
+  color: #3897F0;
+  font-weight: 600;
+  font-size: 12px;
+  outline: 0;
+  cursor: pointer;
+}
+
+.edit-name-field {
+  margin-left: 20px;
+}
+
+.submit-button {
+  background-color: #3897f0;
+  border: 1px solid #3897f0;
+  border-radius: 4px;
+  color: #fff;
+  position: relative;
+  height: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
