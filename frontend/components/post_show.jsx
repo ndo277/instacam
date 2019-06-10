@@ -1,5 +1,6 @@
 import React from 'react';
 import { openModal } from '../actions/modal_actions';
+import {withRouter} from 'react-router';
 
 class PostShow extends React.Component {
   constructor(props){
@@ -28,20 +29,20 @@ class PostShow extends React.Component {
 
           <div className="show-side">
         <div className="show-top">
-          <img className="profile-pic" src={this.props.post.avatarUrl} />
+          <img onClick={() => this.props.history.push(`/users/${post.user_id}`)} className="profile-pic" src={this.props.post.avatarUrl} />
           
           <div className="show-name-button">
-          <p className="avatar-name" >{this.props.post.username}</p>
+                <p onClick={() => this.props.history.push(`/users/${post.user_id}`)} className="avatar-name" >{this.props.post.username}</p>
             {this.props.post.user_id === this.props.currentUser.id && optionsButton}
           </div>
 
         </div>
 
         <div className="show-caption">
-          <img className="profile-pic" src={this.props.post.avatarUrl} />
+              <img onClick={() => this.props.history.push(`/users/${post.user_id}`)} className="profile-pic" src={this.props.post.avatarUrl} />
     
           <span className="caption-name" >
-                <p><strong>{this.props.post.username}</strong>  {this.props.post.caption}</p>
+                <p onClick={() => this.props.history.push(`/users/${post.user_id}`)}><strong>{this.props.post.username}</strong>  {this.props.post.caption}</p>
          </span>
 
         </div>
@@ -54,4 +55,4 @@ class PostShow extends React.Component {
   }
 }
 
-export default PostShow;
+export default withRouter(PostShow);
