@@ -9,12 +9,15 @@ class UserProfile extends React.Component {
     super(props);
 
     this.openModal = this.openModal.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchPosts();
+  }
+
+  componentDidUpdate(){
+    this.props.fetchUser(this.props.match.params.userId);
   }
 
   openModal() {

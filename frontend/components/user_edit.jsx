@@ -8,10 +8,10 @@ class UserEdit extends React.Component {
     super(props);
 
     this.state = {
-      name: "",
-      username: "",
-      website: "",
-      bio: ""
+      name: this.props.currentUser.display_name,
+      username: this.props.currentUser.username,
+      website: this.props.currentUser.website,
+      bio: this.props.currentUser.bio
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,7 +32,7 @@ class UserEdit extends React.Component {
     currentUser.username = this.state.username;
     currentUser.website = this.state.website;
     currentUser.bio = this.state.bio;
-    this.props.updateUser(currentUser);
+    dispatch(this.props.updateUser(currentUser));
   }
 
   update(field) {
