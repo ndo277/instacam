@@ -44,7 +44,7 @@ class UserEdit extends React.Component {
     currentUser.bio = this.state.bio;
     this.props.updateUser(currentUser);
     if (this.state.username){
-      this.props.history.push(`/users/${currentUser.id}/`);
+      setTimeout(() => this.props.history.push(`/users/${currentUser.id}/`), 500);
     } 
     else {
       this.setState({ username: oldUsername});
