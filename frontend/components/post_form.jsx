@@ -83,7 +83,7 @@ class PostForm extends React.Component {
 
     const uploadForm = (
       <div className="upload-form">
-        <h3 className="upload-message">Upload a photo</h3>
+        <h3 className="upload-message">Upload a Photo</h3>
         <form className="upload-field" onSubmit={this.handleSubmit}>
           <input className="file-name" type="file" 
             onChange={this.handleFile} />
