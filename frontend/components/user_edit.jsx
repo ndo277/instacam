@@ -92,7 +92,7 @@ class UserEdit extends React.Component {
 
         <div className="name-field">
           <h3>Bio</h3>
-          <input className="edit-name-field" value={this.state.bio} onChange={this.update('bio')} type="text"/>
+          <textarea className="edit-name-field-bio" value={this.state.bio} onChange={this.update('bio')} type="text"/>
         </div>
 
         <br/>
