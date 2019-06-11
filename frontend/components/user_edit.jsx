@@ -1,6 +1,5 @@
 import React from 'react';
 import {withRouter} from 'react-router';
-import { Link } from 'react-router-dom';
 import { openModal } from '../actions/modal_actions';
 
 class UserEdit extends React.Component {
@@ -26,13 +25,30 @@ class UserEdit extends React.Component {
     dispatch(openModal('pic'));
   }
 
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error) => (
+          <p>{error}</p>
+        ))}
+      </ul>
+    )
+  }
+
   handleSubmit(){
     let currentUser = this.props.currentUser;
+    let oldUsername = this.props.currentUser.username;
     currentUser.display_name = this.state.name;
     currentUser.username = this.state.username;
     currentUser.website = this.state.website;
     currentUser.bio = this.state.bio;
-    dispatch(this.props.updateUser(currentUser));
+    this.props.updateUser(currentUser);
+    if (this.state.username){
+      this.props.history.push(`/users/${currentUser.id}/`);
+    } 
+    else {
+      this.setState({ username: oldUsername});
+    }
   }
 
   update(field) {
@@ -51,7 +67,9 @@ class UserEdit extends React.Component {
           <img className="user-edit-avatar" src={currentUser.avatarUrl} alt="avatar"/>
 
           <div className="name-upload">
-            <h3 className="name">{currentUser.username}</h3>
+
+            {currentUser.username ? (<h3 className="name">{currentUser.username}</h3>) : (<ul className="user-errors">{this.renderErrors()}</ul>)}
+           
             <button onClick={this.openModal} className="change-button">Change Profile Photo</button>
           </div>
 
@@ -78,8 +96,8 @@ class UserEdit extends React.Component {
         </div>
 
         <br/>
-        <Link className="submit-button" to={`/users/${currentUser.id}/`} onClick={this.handleSubmit}>Submit</Link>
-   
+
+        <button className="submit-button" onClick={this.handleSubmit}>Submit</button>
 
       </div>
     )

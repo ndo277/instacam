@@ -16,10 +16,6 @@ class UserProfile extends React.Component {
     this.props.fetchPosts();
   }
 
-  componentDidUpdate(){
-    this.props.fetchUser(this.props.match.params.userId);
-  }
-
   openModal() {
     if (this.props.user.id === this.props.currentUser.id){
       dispatch(openModal('pic'));

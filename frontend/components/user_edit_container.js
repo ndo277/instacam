@@ -4,7 +4,8 @@ import {fetchUser, updateUser} from '../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const currentUser = state.entities.users[state.session.id];
-  return {currentUser};
+  const errors = state.errors.sessionErrors;
+  return {currentUser, errors};
 };
 
 const mapDispatchToProps = (dispatch) => ({
