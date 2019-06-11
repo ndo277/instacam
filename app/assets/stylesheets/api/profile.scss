@@ -191,6 +191,19 @@
 
 .edit-name-field {
   margin-left: 20px;
+  width: 355px;
+  height: 32px;
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+.edit-name-field-bio {
+  margin-left: 20px;
+  width: 355px;
+  height: 64px;
+  font-size: 16px;
+  padding-left: 5px;
+  resize: none;
 }
 
 .submit-button {
