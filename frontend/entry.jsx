@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root'; 
-import {createComment} from './util/comment_api_util';
+import {createComment} from './actions/comment_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
