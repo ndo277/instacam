@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root'; 
-import {updateUser} from './actions/user_actions';
+import {createComment} from './util/comment_api_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,9 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.state = store.getState;
-  window.updateUser = updateUser;
   window.dispatch = store.dispatch;
-  
+  window.createComment = createComment;
   
 
   ReactDOM.render(<Root store={store}/>, root);
