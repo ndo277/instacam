@@ -25,6 +25,7 @@ class PostShow extends React.Component {
     e.preventDefault();
     let comment = {comment: {body: this.state.commentBody, post_id: this.props.postId}};
     this.props.createComment(comment);
+    this.setState({commentBody: ""});
   }
 
   componentDidMount(){
@@ -38,6 +39,7 @@ class PostShow extends React.Component {
   render(){
     let post = this.props.post;
     if (!post) return null;
+    if (!post.comments) return null;
     const optionsButton = (<button className="show-button" onClick={this.openModal} >...</button>)
     return(
       <div className="show-box">
@@ -63,7 +65,13 @@ class PostShow extends React.Component {
             </div>
 
             <div className="show-comments">
-              <h1>COMMENTS...</h1>
+              <ul>
+                {this.props.post.comments.map(comment=>
+                  <li key={comment.id}>
+                    {comment.user_id + ": " + comment.body}
+                  </li>
+                  )}
+              </ul>
             </div>
 
          
