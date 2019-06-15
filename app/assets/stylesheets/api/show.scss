@@ -126,3 +126,26 @@
   border-bottom: 1px solid #e6e6e6; 
 }
 
+.comment-field {
+  width: 270px;
+  height: 18px;
+  resize: none;
+  border: none;
+  margin-left: 16px;
+  margin-top: 19px;
+  font-size: 14px;
+  outline: none;
+}
+
+.comment-button {
+  position: relative;
+  bottom: 7px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0;
+  color: #3897F0;
+  outline: none;
+  cursor: pointer;
+}
+
