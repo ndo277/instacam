@@ -7,7 +7,8 @@ class PostShow extends React.Component {
     super(props);
 
     this.state = {
-      commentBody: ""
+      commentBody: "",
+      updated: false
     };
 
     this.openModal = this.openModal.bind(this);
@@ -25,11 +26,19 @@ class PostShow extends React.Component {
     e.preventDefault();
     let comment = {comment: {body: this.state.commentBody, post_id: this.props.postId}};
     this.props.createComment(comment);
-    this.setState({commentBody: ""});
+    this.setState({commentBody: "", updated: true});
   }
 
   componentDidMount(){
     this.props.fetchPost(this.props.match.params.postId);
+  }
+
+  componentDidUpdate(){
+    if (this.state.updated){
+      this.props.fetchPost(this.props.match.params.postId).then(
+        this.setState({updated: false})
+      );
+    }
   }
 
   openModal() {
