@@ -10,3 +10,7 @@ const receiveComment = (comment) => ({
 export const createComment = (data) => (dispatch) => {
   return CommentApiUtil.createComment(data).then((comment) => dispatch(receiveComment(comment)));
 };
+
+export const fetchComment = (id) => (dispatch) => {
+  return CommentApiUtil.fetchComment(id).then((comment) => dispatch(receiveComment(comment)));
+};
