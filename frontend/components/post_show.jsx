@@ -76,8 +76,11 @@ class PostShow extends React.Component {
             <div className="show-comments">
               <ul>
                 {this.props.post.comments.map(comment=>
-                  <li key={comment.id}>
-                    {comment.user_id + ": " + comment.body}
+                  <li key={comment.id} className="show-caption">
+                    <img onClick={() => this.props.history.push(`/users/${comment.user_id}`)} className="profile-pic" src={comment.avatarUrl} />
+                    <span className="caption-name" >
+                      <p onClick={() => this.props.history.push(`/users/${comment.user_id}`)}><strong>{comment.username}</strong>  {comment.body}</p>
+                    </span>
                   </li>
                   )}
               </ul>
