@@ -1,6 +1,7 @@
 import React from 'react';
 import { openModal } from '../actions/modal_actions';
 import {withRouter} from 'react-router';
+import CommentItemContainer from './comment_item_container';
 
 class PostShow extends React.Component {
   constructor(props){
@@ -75,14 +76,15 @@ class PostShow extends React.Component {
 
             <div className="show-comments">
               <ul>
-                {this.props.post.comments.map(comment=>
-                  <li key={comment.id} className="show-caption">
-                    <img onClick={() => this.props.history.push(`/users/${comment.user_id}`)} className="profile-pic" src={comment.avatarUrl} />
+                {this.props.post.comments.map(comment=> {
+                  return <li key={comment.id} className="show-caption">
+                    {/* <img onClick={() => this.props.history.push(`/users/${comment.user_id}`)} className="profile-pic" src={comment.avatarUrl} />
                     <span className="caption-name" >
                       <p onClick={() => this.props.history.push(`/users/${comment.user_id}`)}><strong>{comment.username}</strong>  {comment.body}</p>
-                    </span>
+                    </span> */}
+                    <CommentItemContainer comment={comment}/>
                   </li>
-                  )}
+                  })}
               </ul>
             </div>
 
