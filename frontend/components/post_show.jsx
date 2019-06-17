@@ -50,6 +50,7 @@ class PostShow extends React.Component {
     let post = this.props.post;
     if (!post) return null;
     if (!post.comments) return null;
+    // debugger
     const optionsButton = (<button className="show-button" onClick={this.openModal} >...</button>)
     return(
       <div className="show-box">
@@ -78,11 +79,11 @@ class PostShow extends React.Component {
               <ul>
                 {this.props.post.comments.map(comment=> {
                   return <li key={comment.id} className="show-caption">
-                    {/* <img onClick={() => this.props.history.push(`/users/${comment.user_id}`)} className="profile-pic" src={comment.avatarUrl} />
+                    <img onClick={() => this.props.history.push(`/users/${comment.user_id}`)} className="profile-pic" src={comment.avatarUrl} />
                     <span className="caption-name" >
                       <p onClick={() => this.props.history.push(`/users/${comment.user_id}`)}><strong>{comment.username}</strong>  {comment.body}</p>
-                    </span> */}
-                    <CommentItemContainer comment={comment}/>
+                    </span>
+                    {/* <CommentItemContainer comment={comment}/> */}
                   </li>
                   })}
               </ul>
