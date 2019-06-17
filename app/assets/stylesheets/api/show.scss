@@ -31,7 +31,6 @@
 .show-caption {
   display: flex;
   flex-direction: row;
-  align-items: center;
   padding: 10px;
 }
 
@@ -150,3 +149,8 @@
   cursor: pointer;
 }
 
+
+.comment-item {
+  display: flex;
+  flex-direction: row;
+}
