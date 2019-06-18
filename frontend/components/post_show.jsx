@@ -77,8 +77,9 @@ class PostShow extends React.Component {
 
             <div className="show-caption">
               <img onClick={() => this.props.history.push(`/users/${post.user_id}`)} className="profile-pic" src={this.props.post.avatarUrl} />
-              <span className="caption-name" >
-                <p onClick={() => this.props.history.push(`/users/${post.user_id}`)}><strong>{this.props.post.username}</strong>  {this.props.post.caption}</p>
+              <span>
+                <p><strong className="caption-name" onClick={() => this.props.history.push(`/users/${post.user_id}`)}>{this.props.post.username} </strong> 
+                   {this.props.post.caption}</p>
               </span>
             </div>
 
