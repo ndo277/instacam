@@ -12,9 +12,16 @@ class PostShow extends React.Component {
       updated: false
     };
 
+    this.messagesEnd = React.createRef();
+
     this.openModal = this.openModal.bind(this);
     this.updateComment = this.updateComment.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.scrollToBottom = this.scrollToBottom.bind(this);
+  }
+
+  scrollToBottom(){
+    this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' });
   }
 
   updateComment(e){
@@ -40,6 +47,7 @@ class PostShow extends React.Component {
         this.setState({updated: false})
       );
     }
+    this.scrollToBottom();
   }
 
   openModal() {
@@ -74,12 +82,13 @@ class PostShow extends React.Component {
               </span>
             </div>
 
-            <div className="show-comments">
+            <div id="scroll" className="show-comments">
                 {this.props.post.comments.map(comment=> {
                   return <li key={comment.id} className="show-caption">
                     <CommentItemContainer comment={comment}/>
                   </li>
                   })}
+              <div ref={this.messagesEnd} />
             </div>
 
          
