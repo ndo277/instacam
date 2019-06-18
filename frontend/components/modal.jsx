@@ -5,8 +5,10 @@ import {updatePost, deletePost} from '../actions/post_actions';
 import {closeModal} from '../actions/modal_actions';
 import EditPost from './edit_post';
 import UploadAvatarContainer from './upload_avatar_container';
+import DeleteComment from './delete_comment';
+import deleteComment from '../actions/comment_actions';
 
-const Modal = ({modal, closeModal, deletePost, currentUser}) => {
+const Modal = ({modal, closeModal, deletePost, currentUser, deleteComment}) => {
   if (!modal) return null;
 
   if (!modal.modalType) {
@@ -33,6 +35,11 @@ const Modal = ({modal, closeModal, deletePost, currentUser}) => {
       component = <UploadAvatarContainer 
                    currentUser={currentUser}/>;
       break;
+    case 'delete': 
+      component = <DeleteComment 
+                  deleteComment={deleteComment}
+                  currentUser={currentUser}/>;
+      break;
     default:
       return null;
   }
@@ -58,7 +65,8 @@ const mapDispatchToProps = dispatch => {
   return {
     closeModal: () => dispatch(closeModal()),
     deletePost: (id) => dispatch(deletePost(id)),
-    updatePost: (post) => dispatch(updatePost(post))
+    updatePost: (post) => dispatch(updatePost(post)),
+    deleteComment: (id) => dispatch(deleteComment(id))
   };
 };
 
