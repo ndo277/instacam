@@ -1,5 +1,5 @@
 .show-item {
-  width: 999px;
+  width: 933px;
   display: flex;
   flex-direction: row;
   margin-top: 100px;
@@ -9,12 +9,12 @@
 }
 
 .show-image {
-  height: 533px;
-  width: 533px;
+  height: 598px;
+  width: 598px;
 }
 
 .show-top {
-  width: 447px;
+  width: 95%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -23,6 +23,7 @@
 }
 
 .show-side {
+  width: 334px;
   display: flex;
   flex-direction: column;
 }
@@ -30,7 +31,6 @@
 .show-caption {
   display: flex;
   flex-direction: row;
-  align-items: center;
   padding: 10px;
 }
 
@@ -120,3 +120,37 @@
   cursor: pointer;
 }
 
+.show-comments {
+  height: 360px;
+  border-bottom: 1px solid #e6e6e6; 
+  overflow: scroll;
+}
+
+.comment-field {
+  width: 270px;
+  height: 18px;
+  resize: none;
+  border: none;
+  margin-left: 16px;
+  margin-top: 19px;
+  font-size: 14px;
+  outline: none;
+}
+
+.comment-button {
+  position: relative;
+  bottom: 7px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0;
+  color: #3897F0;
+  outline: none;
+  cursor: pointer;
+}
+
+
+.comment-item {
+  display: flex;
+  flex-direction: row;
+}
