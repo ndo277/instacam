@@ -191,6 +191,7 @@
 
 .comment-row {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
@@ -205,6 +206,10 @@
   align-items: center;
   background: white;
   border-radius: 20px;
+}
+
+.delete-dots {
+  cursor: pointer;
 }
 
 
