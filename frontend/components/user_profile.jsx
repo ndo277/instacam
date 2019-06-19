@@ -46,7 +46,7 @@ class UserProfile extends React.Component {
 
 
     if (!user) return null;
-    let postCount = userPosts.length;
+    let postCount = user.posts.length;
 
     return(
       <div>
