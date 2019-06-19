@@ -22,6 +22,7 @@ class CommentItem extends React.Component {
   render(){
     let comment = this.props.comment;
     if (!comment) return null;
+    const commentOptions = (<div className="show-button" onClick={this.openModal}>...</div>);
     return(
       <div className="comment-item">
         <img onClick={() => this.props.history.push(`/users/${comment.user_id}`)} className="profile-pic" src={comment.avatarUrl} />
@@ -30,7 +31,7 @@ class CommentItem extends React.Component {
             <p onClick={() => this.props.history.push(`/users/${comment.user_id}`)}>
               <strong className="caption-name" >{comment.username}</strong>  {comment.body}</p>
           </span>
-          <div className="show-button" onClick={this.openModal}>...</div>
+          {this.props.currentUser.id === comment.user_id && commentOptions}
         </div>
       </div>
     )
