@@ -13,7 +13,6 @@ class UserProfile extends React.Component {
 
   componentDidMount(){
     this.props.fetchUser(this.props.match.params.userId);
-    this.props.fetchPosts();
   }
 
   openModal() {
@@ -47,7 +46,6 @@ class UserProfile extends React.Component {
 
 
     if (!user) return null;
-    let userPosts = posts.filter(post => post.user_id == this.props.userId);
     let postCount = userPosts.length;
 
     return(
@@ -78,7 +76,7 @@ class UserProfile extends React.Component {
         </div>
 
         <ul className="image-grid">
-        {userPosts.map(post => 
+        {user.posts.map(post => 
           <li className="post-index-list" key={post.id}>
             <img onClick={() => this.props.history.push(`/posts/${post.id}`)} className="user-profile-images" src={post.photoUrl} alt="image"/> 
           </li>
