@@ -16,7 +16,7 @@ class CommentItem extends React.Component {
   }
 
   openModal(){
-    dispatch(openModal('delete'));
+    dispatch(openModal('delete', this.props.comment));
   }
 
   render(){
@@ -25,11 +25,13 @@ class CommentItem extends React.Component {
     return(
       <div className="comment-item">
         <img onClick={() => this.props.history.push(`/users/${comment.user_id}`)} className="profile-pic" src={comment.avatarUrl} />
-        <span>
-          <p onClick={() => this.props.history.push(`/users/${comment.user_id}`)}>
-            <strong className="caption-name" >{comment.username}</strong>  {comment.body}</p>
-        </span>
-        <div onClick={this.openModal}>...</div>
+        <div className="comment-row">
+          <span>
+            <p onClick={() => this.props.history.push(`/users/${comment.user_id}`)}>
+              <strong className="caption-name" >{comment.username}</strong>  {comment.body}</p>
+          </span>
+          <div className="show-button" onClick={this.openModal}>...</div>
+        </div>
       </div>
     )
   }
