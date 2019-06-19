@@ -9,7 +9,7 @@ const Navbar = (props) => {
     props.history.push(`/users/${props.currentUser.id}`);
   };
 
-  const personalGreeting = () => (
+  const navbar = () => (
     <div className="navbar">
 
         <a className="navbar-left" href="/">
@@ -35,7 +35,7 @@ const Navbar = (props) => {
     </div>
   );
 
-  return props.currentUser ? personalGreeting() : null;
+  return props.currentUser ? navbar() : null;
 
 }; 
 
