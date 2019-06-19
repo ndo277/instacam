@@ -97,14 +97,3 @@ In a React view component, an openModal action dispatch would be triggered by an
           </div>
 ...
 ```
-
-
-## Future implementations
-
-* Users will be able to comment on image posts
-
-* Users will be able to like image posts
-
-* Users will be able to follow other users
-
-
