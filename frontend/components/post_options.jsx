@@ -5,12 +5,12 @@ const PostOptions = ({post, deletePost, closeModal, currentUser}) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    dispatch(closeModal());
-    dispatch(deletePost(post.id));
+    closeModal();
+    deletePost(post.id);
   };
 
   const handleCancel = (e) => {
-    dispatch(closeModal());
+    closeModal();
   };
 
   const optionsUser = (

@@ -18,11 +18,11 @@ class EditPost extends React.Component {
   handleSubmit () {
     this.props.post.caption = this.state.caption;
     dispatch(this.props.updatePost(this.props.post));
-    dispatch(this.props.closeModal());
+    this.props.closeModal();
   }
 
   handleCancel () {
-    dispatch(this.props.closeModal());
+    this.props.closeModal();
   }
 
   handleInput(e) {
@@ -30,8 +30,8 @@ class EditPost extends React.Component {
   }
 
   handleDelete() {
-    dispatch(this.props.closeModal());
-    dispatch(this.props.deletePost(this.props.post.id).then(this.props.history.push('/')));
+    this.props.closeModal();
+    this.props.deletePost(this.props.post.id).then(this.props.history.push('/'));
   }
 
   render() {
