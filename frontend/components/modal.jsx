@@ -6,7 +6,7 @@ import {closeModal} from '../actions/modal_actions';
 import EditPost from './edit_post';
 import UploadAvatarContainer from './upload_avatar_container';
 import DeleteComment from './delete_comment';
-import deleteComment from '../actions/comment_actions';
+import {deleteComment} from '../actions/comment_actions';
 
 const Modal = ({modal, closeModal, deletePost, currentUser, deleteComment}) => {
   if (!modal) return null;
@@ -38,7 +38,8 @@ const Modal = ({modal, closeModal, deletePost, currentUser, deleteComment}) => {
     case 'delete': 
       component = <DeleteComment 
                   deleteComment={deleteComment}
-                  currentUser={currentUser}/>;
+                  comment={modal.post.data}
+                  closeModal={closeModal}/>;
       break;
     default:
       return null;

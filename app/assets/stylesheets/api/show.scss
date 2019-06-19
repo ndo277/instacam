@@ -32,6 +32,8 @@
   display: flex;
   flex-direction: row;
   padding: 10px;
+  overflow: scroll;
+  height: 80px;
 }
 
 .show-box {
@@ -155,8 +157,59 @@
   flex-direction: row;
 }
 
-.delete-comment-modal {
-  width: 300px;
-  height: 300px;
-  background-color: white;
+.delete-comment-button {
+  width: 100%;
+  height: 44px;
+  color: red;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  outline: none;
 }
+
+.delete-cancel-button {
+  width: 100%;
+  height: 44px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  outline: none;
+}
+
+.delete-cancel-button:hover {
+  color: blue;
+}
+
+.delete-sep {
+  width: 100%;
+  background-color: #e6e6e6;
+}
+
+.comment-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.delete-comment-modal {
+  position: relative;
+  right: 193px;
+  bottom: 100px;
+  width: 300px;
+  height: 87px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+}
+
+.delete-dots {
+  cursor: pointer;
+}
+
+
