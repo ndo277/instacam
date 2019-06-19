@@ -21,6 +21,7 @@ class PostShow extends React.Component {
   }
 
   scrollToBottom(){
+    if (!this.messagesEnd.current) return null;
     this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' });
   }
 
