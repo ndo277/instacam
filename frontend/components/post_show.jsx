@@ -34,8 +34,8 @@ class PostShow extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     let comment = {comment: {body: this.state.commentBody, post_id: this.props.postId}};
-    this.props.createComment(comment);
-    this.setState({commentBody: "", updated: true});
+    this.props.createComment(comment)
+      .then(this.setState({ commentBody: "", updated: true }));
   }
 
   componentDidMount(){

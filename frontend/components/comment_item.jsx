@@ -26,14 +26,12 @@ class CommentItem extends React.Component {
     return(
       <div className="comment-item">
         <img onClick={() => this.props.history.push(`/users/${comment.user_id}`)} className="profile-pic" src={comment.avatarUrl} />
-        <div className="comment-row">
-          <span>
-            <p onClick={() => this.props.history.push(`/users/${comment.user_id}`)}>
-              <strong className="caption-name" >{comment.username}</strong>  {comment.body}</p>
+          <span className="comment-row">
+              <p className="username-comment" onClick={() => this.props.history.push(`/users/${comment.user_id}`)}>
+                <strong className="caption-name" >{comment.username}</strong>  {comment.body}</p>
+            {this.props.currentUser.id === comment.user_id && commentOptions}
           </span>
-          {this.props.currentUser.id === comment.user_id && commentOptions}
         </div>
-      </div>
     )
   }
 }

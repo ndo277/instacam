@@ -192,8 +192,12 @@
 .comment-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
+
+.username-comment{
+  width: 230px;
+}
+
 
 .delete-comment-modal {
   position: relative;
