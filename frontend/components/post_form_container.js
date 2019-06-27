@@ -3,7 +3,8 @@ import { createPost, fetchPosts } from '../actions/post_actions';
 import PostForm from './post_form';
 
 const mapStateToProps = (state) => ({
-  posts: state.entities.posts
+  posts: state.entities.posts,
+  currentUser: state.entities.users[state.session.id]
 });
 
 const mapDispatchToProps = (dispatch) => ({
