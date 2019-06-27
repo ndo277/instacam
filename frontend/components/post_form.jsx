@@ -9,7 +9,8 @@ class PostForm extends React.Component {
       caption: "",
       photoFile: null,
       open: false,
-      photoUrl: null
+      photoUrl: null,
+      loading: false
     };
 
     this.container = React.createRef();
@@ -61,13 +62,21 @@ class PostForm extends React.Component {
     const formData = new FormData();
     formData.append('post[caption]', this.state.caption);
     formData.append('post[photo]', this.state.photoFile);
-    this.props.createPost(formData).then(()=>this.props.update)
-      .then(this.props.history.push('/'))
-      .then(window.scrollTo(0, 0));
-    this.setState({open: false, caption: "", photoUrl: null});
+    this.props.createPost(formData)
+      .then(this.setState({loading: true}))
+      .then(setTimeout(()=> {
+        this.setState({loading: false});
+        this.setState({ open: false, caption: "", photoUrl: null });
+        this.props.history.push(`/`);
+        window.scrollTo(0, 0);
+      }, 2000));
+    
   }
 
   render() {
+    const spinner = (
+      <i className="fa fa-refresh fa-spin" />
+    )
 
     const preview = this.state.photoUrl 
                   ?
@@ -78,7 +87,12 @@ class PostForm extends React.Component {
                       value={this.state.caption}
                       onChange={this.handleInput} />
                     <br/>
-                    <input className="create-button" type="submit" value="Create post" />
+                    <button className="create-button" disabled={this.state.loading}>
+                      {!this.state.loading && <span>Create Post</span>}
+                      {this.state.loading && spinner}
+
+                      {this.state.loading && <span> Creating Post...</span>}
+                    </button>
                   </div>
                   :
                   null;
