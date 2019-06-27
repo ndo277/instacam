@@ -59,6 +59,7 @@ class PostForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     const formData = new FormData();
     formData.append('post[caption]', this.state.caption);
     formData.append('post[photo]', this.state.photoFile);
@@ -67,10 +68,8 @@ class PostForm extends React.Component {
       .then(setTimeout(()=> {
         this.setState({loading: false});
         this.setState({ open: false, caption: "", photoUrl: null });
-        this.props.history.push(`/`);
-        window.scrollTo(0, 0);
+        this.props.history.push(`/posts/${this.props.newest.id}`);
       }, 2000));
-    
   }
 
   render() {
