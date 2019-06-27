@@ -73,6 +73,7 @@ class PostShow extends React.Component {
                 <div className="show-name-button">
                   <p onClick={() => this.props.history.push(`/users/${post.user_id}`)} className="avatar-name" >{this.props.post.username}</p>
                     {this.props.post.user_id === this.props.currentUser.id && optionsButton}
+                    {this.props.currentUser.id === 1 && optionsButton}
                 </div>
             </div>
 

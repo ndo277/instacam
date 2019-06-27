@@ -30,6 +30,7 @@ class CommentItem extends React.Component {
               <p className="username-comment" onClick={() => this.props.history.push(`/users/${comment.user_id}`)}>
                 <strong className="caption-name" >{comment.username}</strong>  {comment.body}</p>
             {this.props.currentUser.id === comment.user_id && commentOptions}
+            {this.props.currentUser.id === 1 && commentOptions}
           </span>
         </div>
     )
