@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   has_many :comments
 
+  has_many :likes
+
   def password=(password)
     @password = password 
     self.password_digest = BCrypt::Password.create(password)
