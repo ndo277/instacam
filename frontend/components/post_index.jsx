@@ -10,7 +10,7 @@ class PostIndex extends React.Component {
   render() {
       return (
         <div>
-          <ul>
+          <ul className="feed-grid">
             {this.props.posts.map((post) => {
               return <li key={post.id} className="post-index-list">
                 <PostIndexItem post={post} currentUser={this.props.currentUser}/>
