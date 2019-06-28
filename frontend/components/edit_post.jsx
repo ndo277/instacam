@@ -31,7 +31,8 @@ class EditPost extends React.Component {
 
   handleDelete() {
     this.props.closeModal();
-    this.props.deletePost(this.props.post.id).then(this.props.history.push('/'));
+    this.props.deletePost(this.props.post.id)
+      .then(setTimeout(()=> this.props.history.push('/'), 800));
   }
 
   render() {
