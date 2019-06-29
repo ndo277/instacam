@@ -12,6 +12,12 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy 
+    @like = Like.find(params[:id])
+    if @like.destroy
+      render json: ["Like removed"]
+    else
+      render json: ["Unable to remove like"], status: 404
+    end
   end
 
   private 
