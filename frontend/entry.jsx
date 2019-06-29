@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root'; 
-import {deleteComment} from './actions/comment_actions';
+import {createLike, fetchLike, deleteLike} from './util/like_api_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,10 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  // TEST
+  /** 
+   * FOR TESTING
+  */
   window.state = store.getState;
   window.dispatch = store.dispatch;
-  window.deleteComment = deleteComment;
+  window.createLike = createLike;
+  window.fetchLike = fetchLike;
+  window.deleteLike = deleteLike;
 
   ReactDOM.render(<Root store={store}/>, root);
 });
