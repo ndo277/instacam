@@ -5,10 +5,15 @@ import {withRouter} from 'react-router';
 class PostIndexItem extends React.Component {
   constructor (props){
     super(props);
+
+    this.state = {
+      liked: false
+    };
     
     this.handleClick = this.handleClick.bind(this);
     this.openModal = this.openModal.bind(this);
     this.handlePhotoClick = this.handlePhotoClick.bind(this);
+    this.handleLikeClick = this.handleLikeClick.bind(this);
   }
 
   handleClick() {
@@ -19,11 +24,21 @@ class PostIndexItem extends React.Component {
     this.props.history.push(`/posts/${this.props.post.id}`);
   }
 
+  handleLikeClick(){
+    this.setState({liked: !this.state.liked});
+  }
+
   openModal(){
     dispatch(openModal('options', this.props.post));
   }
 
   render() {
+    const like = (
+      <img onClick={this.handleLikeClick} src="/images/like-icon-white.png" alt="like" className="like-icon" />
+    )
+    const liked = (
+      <img onClick={this.handleLikeClick} src="/images/like-icon-red.png" alt="liked" className="like-icon" />
+    )
     return(
       <div className="feed-post" >
 
@@ -42,7 +57,8 @@ class PostIndexItem extends React.Component {
         
         <span className="feed-post-part" >
           <div className="like-caption">
-            <img src="/images/like-icon-white.png" alt="like" className="like-icon-white"/>
+            {!this.state.liked && like}
+            {this.state.liked && liked}
             <p className="more"><strong>{this.props.post.username}</strong>  {this.props.post.caption}</p>
           </div>
         </span>
