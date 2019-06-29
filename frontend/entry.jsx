@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root'; 
-import {createLike, fetchLike, deleteLike} from './util/like_api_util';
+import {createLike, fetchLike, deleteLike} from './actions/like_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
