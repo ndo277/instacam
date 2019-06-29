@@ -4,6 +4,7 @@ body {
 }
 
 .navbar {
+  z-index: 2;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -328,4 +329,18 @@ body {
   align-items: center;
 }
 
+.like-icon-white {
+  z-index: 0;
+  height: 24px;
+  width: 30px;
+  position: relative;
+  left: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.like-caption {
+  display: flex; 
+  flex-direction: column;
+}
 
