@@ -39,8 +39,12 @@ class PostIndexItem extends React.Component {
 
           <img onClick={this.handlePhotoClick} className= "feed-image" src={this.props.post.photoUrl}/>
 
+        
         <span className="feed-post-part" >
-          <p className="more"><strong>{this.props.post.username}</strong>  {this.props.post.caption}</p>
+          <div className="like-caption">
+            <img src="/images/like-icon-white.png" alt="like" className="like-icon-white"/>
+            <p className="more"><strong>{this.props.post.username}</strong>  {this.props.post.caption}</p>
+          </div>
         </span>
 
       </div>
