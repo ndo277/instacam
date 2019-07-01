@@ -19,13 +19,8 @@ class PostIndexItem extends React.Component {
 
   getPostLikes(){
     let postLikes = this.props.likes.filter(like => like.post_id === this.props.post.id);
-    debugger
     return postLikes;
   } 
-
-  componentDidMount(){
-    this.getPostLikes();
-  }
 
   handleClick() {
     this.props.history.push(`/users/${this.props.post.user_id}`);
