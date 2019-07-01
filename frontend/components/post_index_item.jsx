@@ -14,6 +14,17 @@ class PostIndexItem extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.handlePhotoClick = this.handlePhotoClick.bind(this);
     this.handleLikeClick = this.handleLikeClick.bind(this);
+    this.getPostLikes = this.getPostLikes.bind(this);
+  }
+
+  getPostLikes(){
+    let postLikes = this.props.likes.filter(like => like.post_id === this.props.post.id);
+    debugger
+    return postLikes;
+  } 
+
+  componentDidMount(){
+    this.getPostLikes();
   }
 
   handleClick() {
