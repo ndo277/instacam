@@ -15,6 +15,14 @@ export const fetchLike = (id) => {
   });
 };
 
+export const fetchLikes = () => {
+  return $.ajax({
+    url: `api/likes/`,
+    method: `GET`,
+    error: (err) => console.log(err)
+  });
+};
+
 export const deleteLike = (id) => {
   return $.ajax({
     url: `api/likes/${id}`,

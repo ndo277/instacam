@@ -5,6 +5,7 @@ class PostIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchPosts();
+    this.props.fetchLikes();
   }
 
   render() {
@@ -13,7 +14,9 @@ class PostIndex extends React.Component {
           <ul>
             {this.props.posts.map((post) => {
               return <li key={post.id} className="post-index-list">
-                <PostIndexItem post={post} currentUser={this.props.currentUser}/>
+                <PostIndexItem post={post} 
+                               currentUser={this.props.currentUser}
+                               likes={this.props.likes}/>
               </li>
           })}
           </ul>
