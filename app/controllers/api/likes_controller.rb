@@ -1,4 +1,9 @@
 class Api::LikesController < ApplicationController
+  def index 
+    @likes = Like.all 
+    render :index
+  end
+
   def show 
     @like = Like.find(params[:id])
     render :show 
