@@ -7,7 +7,8 @@ class PostIndexItem extends React.Component {
     super(props);
 
     this.state = {
-      liked: false
+      liked: false,
+      likesCount: ""
     };
     
     this.handleClick = this.handleClick.bind(this);
@@ -18,13 +19,24 @@ class PostIndexItem extends React.Component {
     this.getPostLikes = this.getPostLikes.bind(this);
     this.getUserLike = this.getUserLike.bind(this);
     this.verifyLiked = this.verifyLiked.bind(this);
+    this.countLikes = this.countLikes.bind(this);
   }
 
   componentDidMount(){
+    // set like icon
     if (this.verifyLiked() === true){
       this.setState({liked: true});
     } else {
       this.setState({liked: false});
+    }
+
+    // set like counts
+    let likesCount = this.countLikes();
+
+    if (likesCount > 0) {
+      this.setState({ likesCount: likesCount });
+    } else {
+      this.setState({ likesCount: "" });
     }
   }
 
@@ -46,6 +58,10 @@ class PostIndexItem extends React.Component {
     return userLike[0];
   }
 
+  countLikes(){
+    return this.getPostLikes().length;
+  }
+
   handleClick() {
     this.props.history.push(`/users/${this.props.post.user_id}`);
   }
@@ -57,13 +73,15 @@ class PostIndexItem extends React.Component {
   handleLikeClick(){
     let likeData = {like: {post_id: this.props.post.id}};
     this.props.createLike(likeData)
-      .then(this.setState({liked: true}));
+      .then(this.setState({liked: true}))
+      .then(this.setState({likesCount: this.state.likesCount + 1}));
   }
 
   handleUnlikeClick(){
     let userLikeId = this.getUserLike().id;
     this.props.deleteLike(userLikeId)
-      .then(this.setState({liked: false}));
+      .then(this.setState({liked: false}))
+      .then(this.setState({likesCount: this.state.likesCount - 1}));
   }
 
   openModal(){
@@ -97,6 +115,8 @@ class PostIndexItem extends React.Component {
           <div className="like-caption">
             {!this.state.liked && like}
             {this.state.liked && liked}
+            <br/>
+            {`${this.state.likesCount} likes`}
             <p className="more"><strong>{this.props.post.username}</strong>  {this.props.post.caption}</p>
           </div>
         </span>
