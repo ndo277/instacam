@@ -7,15 +7,16 @@ class PostIndexItem extends React.Component {
     super(props);
 
     this.state = {
-      liked: false,
-      updated: false
+      liked: false
     };
     
     this.handleClick = this.handleClick.bind(this);
     this.openModal = this.openModal.bind(this);
     this.handlePhotoClick = this.handlePhotoClick.bind(this);
     this.handleLikeClick = this.handleLikeClick.bind(this);
+    this.handleUnlikeClick = this.handleUnlikeClick.bind(this);
     this.getPostLikes = this.getPostLikes.bind(this);
+    this.getUserLike = this.getUserLike.bind(this);
     this.verifyLiked = this.verifyLiked.bind(this);
   }
 
@@ -38,6 +39,13 @@ class PostIndexItem extends React.Component {
     return postLikes;
   } 
 
+  getUserLike(){
+    let userLike = this.props.likes.filter(like => 
+      like.post_id === this.props.post.id && like.user_id === this.props.currentUser.id
+      );
+    return userLike[0];
+  }
+
   handleClick() {
     this.props.history.push(`/users/${this.props.post.user_id}`);
   }
@@ -52,6 +60,12 @@ class PostIndexItem extends React.Component {
       .then(this.setState({liked: true}));
   }
 
+  handleUnlikeClick(){
+    let userLikeId = this.getUserLike().id;
+    this.props.deleteLike(userLikeId)
+      .then(this.setState({liked: false}));
+  }
+
   openModal(){
     dispatch(openModal('options', this.props.post));
   }
@@ -61,7 +75,7 @@ class PostIndexItem extends React.Component {
       <img onClick={this.handleLikeClick} src="/images/like-icon-white.png" alt="like" className="like-icon" />
     )
     const liked = (
-      <img onClick={this.handleLikeClick} src="/images/like-icon-red.png" alt="liked" className="like-icon" />
+      <img onClick={this.handleUnlikeClick} src="/images/like-icon-red.png" alt="liked" className="like-icon" />
     )
     return(
       <div className="feed-post" >

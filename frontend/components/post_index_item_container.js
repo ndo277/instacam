@@ -7,7 +7,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createLike: (data) => dispatch(createLike(data))
+  createLike: (data) => dispatch(createLike(data)),
+  deleteLike: (id) => dispatch(deleteLike(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostIndexItem);
