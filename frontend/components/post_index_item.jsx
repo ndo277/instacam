@@ -7,7 +7,8 @@ class PostIndexItem extends React.Component {
     super(props);
 
     this.state = {
-      liked: false
+      liked: false,
+      updated: false
     };
     
     this.handleClick = this.handleClick.bind(this);
@@ -15,6 +16,21 @@ class PostIndexItem extends React.Component {
     this.handlePhotoClick = this.handlePhotoClick.bind(this);
     this.handleLikeClick = this.handleLikeClick.bind(this);
     this.getPostLikes = this.getPostLikes.bind(this);
+    this.verifyLiked = this.verifyLiked.bind(this);
+  }
+
+  componentDidMount(){
+    if (this.verifyLiked() === true){
+      this.setState({liked: true});
+    } else {
+      this.setState({liked: false});
+    }
+  }
+
+  verifyLiked(){
+    let likeUserIds = this.getPostLikes().map(like => like.user_id);
+    if (likeUserIds.includes(this.props.currentUser.id)) return true;
+    return false;
   }
 
   getPostLikes(){
@@ -31,7 +47,9 @@ class PostIndexItem extends React.Component {
   }
 
   handleLikeClick(){
-    this.setState({liked: !this.state.liked});
+    let likeData = {like: {post_id: this.props.post.id}};
+    this.props.createLike(likeData)
+      .then(this.setState({liked: true}));
   }
 
   openModal(){
