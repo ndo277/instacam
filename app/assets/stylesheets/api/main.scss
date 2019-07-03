@@ -81,7 +81,6 @@ body {
 .feed-image {
   height: 600px;
   width: 600px;
-  cursor: pointer;
 }
 
 .feed-post {
@@ -345,7 +344,20 @@ body {
 }
 
 .like-count {
-  margin-top: 18px;
   margin-left: 10px;
+}
+
+.comment-icon {
+  height: 46px;
+  width: 46px;
+  margin-left: 10px;
+  position: relative;
+  bottom: 1px;
+  cursor: pointer;
+}
+
+.like-comment {
+  display: flex;
+  flex-direction: row;
 }
 

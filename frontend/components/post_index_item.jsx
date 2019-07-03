@@ -14,7 +14,7 @@ class PostIndexItem extends React.Component {
     
     this.handleClick = this.handleClick.bind(this);
     this.openModal = this.openModal.bind(this);
-    this.handlePhotoClick = this.handlePhotoClick.bind(this);
+    this.handleCommentClick = this.handleCommentClick.bind(this);
     this.handleLikeClick = this.handleLikeClick.bind(this);
     this.handleUnlikeClick = this.handleUnlikeClick.bind(this);
     this.getPostLikes = this.getPostLikes.bind(this);
@@ -78,7 +78,7 @@ class PostIndexItem extends React.Component {
     this.props.history.push(`/users/${this.props.post.user_id}`);
   }
 
-  handlePhotoClick(){
+  handleCommentClick(){
     this.props.history.push(`/posts/${this.props.post.id}`);
   }
 
@@ -124,13 +124,16 @@ class PostIndexItem extends React.Component {
 
       </div>
 
-          <img onClick={this.handlePhotoClick} className= "feed-image" src={this.props.post.photoUrl}/>
+          <img onDoubleClick={this.handleLikeClick} className= "feed-image" src={this.props.post.photoUrl}/>
 
         
         <span className="feed-post-part" >
           <div className="like-caption">
-              {!this.state.liked && like}
-              {this.state.liked && liked}
+              <div className="like-comment">
+                {!this.state.liked && like}
+                {this.state.liked && liked}
+                <img onClick={this.handleCommentClick}className="comment-icon" src="/images/comment-icon.png" alt="comment"/>
+              </div>
             <div className="like-count">
               {this.state.likesPhrase}
             </div>
