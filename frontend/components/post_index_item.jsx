@@ -8,7 +8,8 @@ class PostIndexItem extends React.Component {
 
     this.state = {
       liked: false,
-      likesCount: ""
+      likesCount: 0,
+      likesPhrase: ""
     };
     
     this.handleClick = this.handleClick.bind(this);
@@ -20,6 +21,7 @@ class PostIndexItem extends React.Component {
     this.getUserLike = this.getUserLike.bind(this);
     this.verifyLiked = this.verifyLiked.bind(this);
     this.countLikes = this.countLikes.bind(this);
+    this.chooseLikesPhrase = this.chooseLikesPhrase.bind(this);
   }
 
   componentDidMount(){
@@ -32,12 +34,11 @@ class PostIndexItem extends React.Component {
 
     // set like counts
     let likesCount = this.countLikes();
+    this.setState({ likesCount: likesCount });
 
-    if (likesCount > 0) {
-      this.setState({ likesCount: likesCount });
-    } else {
-      this.setState({ likesCount: "" });
-    }
+    // set like phrase
+    let likesPhrase = this.chooseLikesPhrase();
+    this.setState({likesPhrase: likesPhrase});
   }
 
   verifyLiked(){
@@ -62,6 +63,17 @@ class PostIndexItem extends React.Component {
     return this.getPostLikes().length;
   }
 
+  chooseLikesPhrase(){
+    let likes = this.countLikes();
+    if (likes === 0){
+      return "Be the first to like this!";
+    } else if (likes === 1) {
+      return "1 like";
+    } else {
+      return `${likes} likes`;
+    }
+  }
+
   handleClick() {
     this.props.history.push(`/users/${this.props.post.user_id}`);
   }
@@ -72,16 +84,20 @@ class PostIndexItem extends React.Component {
 
   handleLikeClick(){
     let likeData = {like: {post_id: this.props.post.id}};
+
     this.props.createLike(likeData)
-      .then(this.setState({liked: true}))
-      .then(this.setState({likesCount: this.state.likesCount + 1}));
+      .then(() => {this.setState({liked: true});})
+      .then(() => {this.setState({likesCount: this.state.likesCount + 1});})
+      .then(() => {this.setState({ likesPhrase: this.chooseLikesPhrase() });});
   }
 
   handleUnlikeClick(){
     let userLikeId = this.getUserLike().id;
+  
     this.props.deleteLike(userLikeId)
-      .then(this.setState({liked: false}))
-      .then(this.setState({likesCount: this.state.likesCount - 1}));
+      .then(() => {this.setState({liked: false});})
+      .then(() => {this.setState({likesCount: this.state.likesCount - 1});})
+      .then(() => {this.setState({ likesPhrase: this.chooseLikesPhrase() });});
   }
 
   openModal(){
@@ -113,10 +129,11 @@ class PostIndexItem extends React.Component {
         
         <span className="feed-post-part" >
           <div className="like-caption">
-            {!this.state.liked && like}
-            {this.state.liked && liked}
-            <br/>
-            {`${this.state.likesCount} likes`}
+              {!this.state.liked && like}
+              {this.state.liked && liked}
+            <div className="like-count">
+              {this.state.likesPhrase}
+            </div>
             <p className="more"><strong>{this.props.post.username}</strong>  {this.props.post.caption}</p>
           </div>
         </span>
