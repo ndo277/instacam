@@ -91,8 +91,23 @@ body {
   padding-top: 80px;
 }
 
-.feed-post-part {
+.feed-post-part-top {
   width: 600px;
+  display: flex;
+  flex-direction: row;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid #e6e6e6;
+  background-color: white;
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.feed-post-part-bottom {
+  width: 600px;
+  // height: 200px;
   display: flex;
   flex-direction: row;
   flex-direction: row;

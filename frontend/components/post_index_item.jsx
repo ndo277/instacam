@@ -114,7 +114,7 @@ class PostIndexItem extends React.Component {
     return(
       <div className="feed-post" >
 
-      <div className="feed-post-part">
+      <div className="feed-post-part-top">
         <img onClick={this.handleClick} className="profile-pic" src={this.props.post.avatarUrl} />
 
           <div className="post-name-options">
@@ -127,7 +127,7 @@ class PostIndexItem extends React.Component {
           <img onDoubleClick={this.handleLikeClick} className= "feed-image" src={this.props.post.photoUrl}/>
 
         
-        <span className="feed-post-part" >
+        <span className="feed-post-part-bottom" >
           <div className="like-caption">
               <div className="like-comment">
                 {!this.state.liked && like}
