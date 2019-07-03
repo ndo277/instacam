@@ -97,6 +97,7 @@ body {
   // height: 65px;
   display: flex;
   flex-direction: row;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   border: 1px solid #e6e6e6;
@@ -341,5 +342,10 @@ body {
 .like-caption {
   display: flex; 
   flex-direction: column;
+}
+
+.like-count {
+  margin-top: 18px;
+  margin-left: 10px;
 }
 
