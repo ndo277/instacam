@@ -11,7 +11,7 @@ class DeleteComment extends React.Component {
 
   handleDelete(){
     this.props.deleteComment(this.props.comment.id)
-      .then(location.reload());
+      .then(() => {location.reload();});
   }
 
   handleCancel(){
