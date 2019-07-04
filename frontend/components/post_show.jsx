@@ -9,6 +9,9 @@ class PostShow extends React.Component {
 
     this.state = {
       commentBody: "",
+      liked: false,
+      likesCount: 0,
+      likesPhrase: "",
       updated: false
     };
 
@@ -18,6 +21,13 @@ class PostShow extends React.Component {
     this.updateComment = this.updateComment.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.scrollToBottom = this.scrollToBottom.bind(this);
+    this.handleLikeClick = this.handleLikeClick.bind(this);
+    this.handleUnlikeClick = this.handleUnlikeClick.bind(this);
+    this.getPostLikes = this.getPostLikes.bind(this);
+    this.getUserLike = this.getUserLike.bind(this);
+    this.verifyLiked = this.verifyLiked.bind(this);
+    this.countLikes = this.countLikes.bind(this);
+    this.chooseLikesPhrase = this.chooseLikesPhrase.bind(this);
   }
 
   scrollToBottom(){
@@ -39,7 +49,28 @@ class PostShow extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchPost(this.props.match.params.postId);
+    this.props.fetchPost(this.props.match.params.postId)
+      .then(() => {
+        this.props.fetchLikes()
+          .then(() => {
+            // set liked
+            if (this.verifyLiked() === true) {
+              this.setState({ liked: true });
+            } else {
+              this.setState({ liked: false });
+            }
+
+            // set likes count
+
+            let likesCount = this.countLikes();
+            this.setState({ likesCount: likesCount });
+
+            // set likes phrase
+
+            let likesPhrase = this.chooseLikesPhrase();
+            this.setState({ likesPhrase: likesPhrase });
+          });
+      });
   }
 
   componentDidUpdate(){
@@ -55,11 +86,73 @@ class PostShow extends React.Component {
     dispatch(openModal('edit', this.props.post));
   }
 
+  handleLikeClick() {
+    let likeData = { like: { post_id: this.props.post.id } };
+
+    this.props.createLike(likeData)
+      .then(() => { this.setState({ liked: true }); })
+      .then(() => { this.setState({ likesCount: this.state.likesCount + 1 }); })
+      .then(() => { this.setState({ likesPhrase: this.chooseLikesPhrase() }); });
+  }
+
+  handleUnlikeClick() {
+    let userLikeId = this.getUserLike().id;
+
+    this.props.deleteLike(userLikeId)
+      .then(() => { this.setState({ liked: false }); })
+      .then(() => { this.setState({ likesCount: this.state.likesCount - 1 }); })
+      .then(() => { this.setState({ likesPhrase: this.chooseLikesPhrase() }); });
+  }
+
+  handleCommentClick(){
+    document.getElementById("comment-box").focus();
+  }
+
+  getUserLike() {
+    let userLike = this.props.likes.filter(like =>
+      like.post_id === this.props.post.id && like.user_id === this.props.currentUser.id
+    );
+    return userLike[0];
+  }
+
+  getPostLikes() {
+    let postLikes = this.props.likes.filter(like => like.post_id === this.props.post.id);
+    return postLikes;
+  } 
+
+  verifyLiked() {
+    let likeUserIds = this.getPostLikes().map(like => like.user_id);
+    if (likeUserIds.includes(this.props.currentUser.id)) return true;
+    return false;
+  }
+
+  countLikes() {
+    return this.getPostLikes().length;
+  }
+
+  chooseLikesPhrase() {
+    let likes = this.countLikes();
+    if (likes === 0) {
+      return "Be the first to like this!";
+    } else if (likes === 1) {
+      return "1 like";
+    } else {
+      return `${likes} likes`;
+    }
+  }
+
   render(){
     let post = this.props.post;
     if (!post) return null;
     if (!post.comments) return null;
     const optionsButton = (<button className="show-button" onClick={this.openModal} >...</button>)
+    const like = (
+      <img onClick={this.handleLikeClick} src="/images/like-icon-white.png" alt="like" className="like-icon" />
+    )
+    const liked =(
+      <img onClick={this.handleUnlikeClick} src="/images/like-icon-red.png" alt="liked" className="like-icon" />
+    )
+
     return(
       <div className="show-box">
         <div className="show-item" >
@@ -94,12 +187,24 @@ class PostShow extends React.Component {
               <div ref={this.messagesEnd} />
             </div>
 
+            <div className="show-icons">
+              <div className="like-comment">
+                {!this.state.liked && like}
+                {this.state.liked && liked}
+                <img onClick={this.handleCommentClick} className="comment-icon" src="/images/comment-icon.png" alt="comment" />
+              </div>
+              <div className="like-count">
+                {this.state.likesPhrase}
+              </div>
+            </div>
+
          
             <form onSubmit={this.handleSubmit} className="comment-form">
               <textarea value={this.state.commentBody} 
                      onChange={this.updateComment}
                      placeholder="Add a comment..."
-                     className="comment-field" 
+                     className="comment-field"
+                     id="comment-box" 
                      type="text"/>
               <input value="Post" className="comment-button" type="submit"/>
             </form>
