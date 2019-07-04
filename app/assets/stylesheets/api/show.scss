@@ -123,7 +123,7 @@
 }
 
 .show-comments {
-  height: 360px;
+  height: 260px;
   border-bottom: 1px solid #e6e6e6; 
   overflow: scroll;
 }
@@ -214,6 +214,17 @@
 
 .delete-dots {
   cursor: pointer;
+}
+
+.show-icons {
+  width: 334px;
+  height: 100px;
+  border-bottom: 1px solid #e6e6e6; 
+}
+
+.like-count-show {
+  margin-top: 15px;
+  margin-left: 10px;
 }
 
 

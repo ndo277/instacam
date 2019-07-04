@@ -8,7 +8,7 @@ const selectPosts = (posts) => {
 
 const selectLikes = (likes) => {
   return Object.values(likes);
-}
+};
 
 const mapStateToProps = (state) => ({
   posts: selectPosts(state.entities.posts),
