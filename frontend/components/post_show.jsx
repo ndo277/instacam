@@ -104,6 +104,10 @@ class PostShow extends React.Component {
       .then(() => { this.setState({ likesPhrase: this.chooseLikesPhrase() }); });
   }
 
+  handleCommentClick(){
+    document.getElementById("comment-box").focus();
+  }
+
   getUserLike() {
     let userLike = this.props.likes.filter(like =>
       like.post_id === this.props.post.id && like.user_id === this.props.currentUser.id
@@ -184,10 +188,12 @@ class PostShow extends React.Component {
             </div>
 
             <div className="show-icons">
-              {!this.state.liked && like}
-              {this.state.liked && liked}
-
-              <div className="like-count-show">
+              <div className="like-comment">
+                {!this.state.liked && like}
+                {this.state.liked && liked}
+                <img onClick={this.handleCommentClick} className="comment-icon" src="/images/comment-icon.png" alt="comment" />
+              </div>
+              <div className="like-count">
                 {this.state.likesPhrase}
               </div>
             </div>
@@ -197,7 +203,8 @@ class PostShow extends React.Component {
               <textarea value={this.state.commentBody} 
                      onChange={this.updateComment}
                      placeholder="Add a comment..."
-                     className="comment-field" 
+                     className="comment-field"
+                     id="comment-box" 
                      type="text"/>
               <input value="Post" className="comment-button" type="submit"/>
             </form>

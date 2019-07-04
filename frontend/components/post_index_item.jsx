@@ -25,6 +25,8 @@ class PostIndexItem extends React.Component {
   }
 
   componentDidMount(){
+    // post & likes fetched from parent component 
+
     // set like icon
     if (this.verifyLiked() === true){
       this.setState({liked: true});

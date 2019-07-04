@@ -123,7 +123,7 @@
 }
 
 .show-comments {
-  height: 260px;
+  height: 285px;
   border-bottom: 1px solid #e6e6e6; 
   overflow: scroll;
 }
@@ -134,7 +134,7 @@
   resize: none;
   border: none;
   margin-left: 16px;
-  margin-top: 19px;
+  margin-top: 10px;
   font-size: 14px;
   outline: none;
 }
@@ -218,13 +218,8 @@
 
 .show-icons {
   width: 334px;
-  height: 100px;
+  height: 75px;
   border-bottom: 1px solid #e6e6e6; 
-}
-
-.like-count-show {
-  margin-top: 15px;
-  margin-left: 10px;
 }
 
 
