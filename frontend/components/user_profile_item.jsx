@@ -40,10 +40,10 @@ class UserProfileItem extends React.Component {
       <div className="image-container" onClick={() => this.props.history.push(`/posts/${this.props.post.id}`)}>
         <div className="middle">
           <div className="icons-prof">
-            <i className="fas fa-heart"></i>
-            {this.state.likes}
-            <i className="fas fa-comment"></i>
-            {this.state.comments}
+            <i className="fas fa-heart"> {this.state.likes}</i>
+            <br/>
+            <i className="fas fa-comment"> {this.state.comments}</i>
+            
           </div>
         </div>
         <img className="user-profile-images"

@@ -247,20 +247,23 @@
   cursor: pointer;
 }
 
-.comment-icon-prof {
-  display: none;
-  position: absolute;
-  height: 46px;
-  width: 46px;
-  margin-left: 10px;
-  cursor: pointer;
-  opacity: 1;
-}
-
 .image-container:hover .middle {
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
 .icons-prof {
+  display: flex;
+  flex-direction: column;
   color: white;
+  position: absolute;
+  top: 35%;
+  left: 40%;
+}
+
+.fa-heart {
+  font-size: 30px;
+}
+
+.fa-comment {
+  font-size: 30px;
 }
