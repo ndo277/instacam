@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {fetchPost} from '../actions/post_actions';
 import {createComment} from '../actions/comment_actions';
-import {createLike} from '../actions/like_actions';
+import {createLike, fetchLikes, deleteLike} from '../actions/like_actions';
 import PostShow from './post_show';
 
 const selectLikes = (likes) => {

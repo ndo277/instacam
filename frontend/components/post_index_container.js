@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import PostIndex from './post_index';
 import {fetchPosts, deletePost} from '../actions/post_actions';
+import {fetchLikes} from '../actions/like_actions';
 
 const selectPosts = (posts) => {
   return Object.keys(posts).reverse().map(id => posts[id]);
