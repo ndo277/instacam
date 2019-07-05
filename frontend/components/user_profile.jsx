@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { openModal } from '../actions/modal_actions';
 import { withRouter } from 'react-router';
-
+import UserProfileItem from './user_profile_item';
 
 class UserProfile extends React.Component {
   constructor(props){
@@ -13,6 +13,7 @@ class UserProfile extends React.Component {
 
   componentDidMount(){
     this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchLikes();
   }
 
   openModal() {
@@ -78,12 +79,7 @@ class UserProfile extends React.Component {
         <ul className="image-grid">
         {user.posts.map(post => 
           <li className="post-index-list" key={post.id}>
-            <div className="image-container">
-              <div className="image-hover"></div>
-              <img onClick={() => this.props.history.push(`/posts/${post.id}`)} 
-                   className="user-profile-images" 
-                   src={post.photoUrl} alt="image"/>
-            </div>
+            <UserProfileItem post={post} likes={this.props.likes}/>
           </li>
         )}
         </ul>

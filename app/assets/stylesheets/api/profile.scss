@@ -226,6 +226,10 @@
   margin: 0;
 }
 
+.image-container{
+  position: relative;
+}
+
 .user-profile-images {
   width: 293px;
   height: 293px;
@@ -233,16 +237,30 @@
   cursor: pointer;
 }
 
-.image-hover {
+.middle {
   position: absolute;
   width: 293px;
   height: 293px;
   margin: 14px;
   background-color: black;
-  opacity: 0.3;
+  opacity: 0;
   cursor: pointer;
 }
 
-.image-container{
-  position: relative;
+.comment-icon-prof {
+  display: none;
+  position: absolute;
+  height: 46px;
+  width: 46px;
+  margin-left: 10px;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.image-container:hover .middle {
+  opacity: 0.3;
+}
+
+.icons-prof {
+  color: white;
 }
