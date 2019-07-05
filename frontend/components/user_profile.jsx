@@ -14,6 +14,7 @@ class UserProfile extends React.Component {
   componentDidMount(){
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchLikes();
+    this.props.fetchComments();
   }
 
   openModal() {
@@ -79,7 +80,9 @@ class UserProfile extends React.Component {
         <ul className="image-grid">
         {user.posts.map(post => 
           <li className="post-index-list" key={post.id}>
-            <UserProfileItem post={post} likes={this.props.likes} fetchLikes={this.props.fetchLikes}/>
+            <UserProfileItem post={post} likes={this.props.likes} comments={this.props.comments} 
+                             fetchLikes={this.props.fetchLikes}
+                             fetchComments={this.props.fetchComments}/>
           </li>
         )}
         </ul>
