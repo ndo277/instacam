@@ -78,7 +78,12 @@ class UserProfile extends React.Component {
         <ul className="image-grid">
         {user.posts.map(post => 
           <li className="post-index-list" key={post.id}>
-            <img onClick={() => this.props.history.push(`/posts/${post.id}`)} className="user-profile-images" src={post.photoUrl} alt="image"/> 
+            <div className="image-container">
+              <div className="image-hover"></div>
+              <img onClick={() => this.props.history.push(`/posts/${post.id}`)} 
+                   className="user-profile-images" 
+                   src={post.photoUrl} alt="image"/>
+            </div>
           </li>
         )}
         </ul>
