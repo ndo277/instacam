@@ -4,12 +4,17 @@ class Api::FollowsController < ApplicationController
     render :index
   end
 
+  def show 
+    @follow = Follow.find(params[:id])
+    render :show
+  end
+
   def create 
     @follow = Follow.new(follow_params)
     @follow.follower_id = current_user.id  
     
     if @follow.save 
-      render json: ['Follow created']
+      render :show
     else
       render json: @follow.errors.full_messages, status: 422
     end
