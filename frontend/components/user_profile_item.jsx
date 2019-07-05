@@ -13,8 +13,10 @@ class UserProfileItem extends React.Component {
   }
 
   componentDidMount(){
-    // debugger
-    this.setState({likes: this.countLikes()}); 
+    this.props.fetchLikes()
+      .then(() => {
+        this.setState({ likes: this.countLikes() }); 
+      });
   }
 
   countLikes(){

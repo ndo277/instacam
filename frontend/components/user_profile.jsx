@@ -79,7 +79,7 @@ class UserProfile extends React.Component {
         <ul className="image-grid">
         {user.posts.map(post => 
           <li className="post-index-list" key={post.id}>
-            <UserProfileItem post={post} likes={this.props.likes}/>
+            <UserProfileItem post={post} likes={this.props.likes} fetchLikes={this.props.fetchLikes}/>
           </li>
         )}
         </ul>
