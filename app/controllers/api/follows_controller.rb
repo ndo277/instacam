@@ -13,7 +13,18 @@ class Api::FollowsController < ApplicationController
     else
       render json: @follow.errors.full_messages, status: 422
     end
+
+  end
+
+  def destroy 
+    @follow = Follow.find(params[:id])
     
+    if @follow.destroy 
+      render json: ["Follow removed"]
+    else
+      render json: ["Unable to remove follow"], status: 404
+    end
+
   end
 
   private
