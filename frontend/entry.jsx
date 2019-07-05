@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root'; 
-import {createLike, fetchLikes, deleteLike} from './actions/like_actions';
+import { createFollow, fetchFollows, fetchFollow, deleteFollow} from './util/follow_api_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,9 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
   */
   window.state = store.getState;
   window.dispatch = store.dispatch;
-  window.createLike = createLike;
-  window.fetchLikes = fetchLikes;
-  window.deleteLike = deleteLike;
+  window.createFollow = createFollow;
+  window.fetchFollows = fetchFollows;
+  window.fetchFollow = fetchFollow;
+  window.deleteFollow = deleteFollow;
 
   ReactDOM.render(<Root store={store}/>, root);
 });
