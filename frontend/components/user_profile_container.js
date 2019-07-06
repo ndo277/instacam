@@ -4,7 +4,7 @@ import {fetchPosts} from '../actions/post_actions';
 import {fetchUser} from '../actions/user_actions';
 import {fetchLikes} from '../actions/like_actions';
 import {fetchComments} from '../actions/comment_actions';
-import {createFollow, fetchFollows} from '../actions/follow_actions';
+import {createFollow, fetchFollows, deleteFollow} from '../actions/follow_actions';
 
 const selectPosts = (posts) => {
   return Object.keys(posts).reverse().map(id => posts[id]);
@@ -39,6 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchLikes: () => dispatch(fetchLikes()),
   fetchComments: () => dispatch(fetchComments()),
   createFollow: (data) => dispatch(createFollow(data)),
+  deleteFollow: (id) => dispatch(deleteFollow(id)),
   fetchFollows: () => dispatch(fetchFollows())
 });
 
