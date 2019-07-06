@@ -8,11 +8,22 @@ class UserProfile extends React.Component {
   constructor(props){
     super(props);
 
+    this.state = {
+      following: false
+    };
+
     this.openModal = this.openModal.bind(this);
+    this.handleFollowClick = this.handleFollowClick.bind(this);
+    this.getFollowers = this.getFollowers.bind(this);
+    this.verifyCurrentUserIsFollowing = this.verifyCurrentUserIsFollowing.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchUser(this.props.match.params.userId)
+      .then(() => {
+        this.props.fetchFollows()
+          .then(() => this.verifyCurrentUserIsFollowing());
+      });
     this.props.fetchLikes();
     this.props.fetchComments();
   }
@@ -20,6 +31,24 @@ class UserProfile extends React.Component {
   openModal() {
     if (this.props.user.id === this.props.currentUser.id){
       dispatch(openModal('pic'));
+    }
+  }
+
+  handleFollowClick(){
+    let followData = {follow: {followee_id: this.props.user.id}};
+    this.props.createFollow(followData)
+      .then(()=> this.setState({following: true}));
+  }
+
+  getFollowers(){
+    let userFollows = this.props.follows.filter(follow => follow.followee_id === this.props.user.id);
+    let followers = userFollows.map(follow => follow.follower_id);
+    return followers;
+  }
+
+  verifyCurrentUserIsFollowing(){
+    if (this.getFollowers().includes(this.props.currentUser.id)){
+      this.setState({following: true});
     }
   }
 
@@ -46,6 +75,18 @@ class UserProfile extends React.Component {
       </div>
     )
 
+    const followButton = (
+      <button onClick={this.handleFollowClick} className="follow-button">
+        Follow
+              </button>
+    )
+
+    const followingButton = (
+      <button className="edit-profile">
+        Following
+              </button>
+    )
+
 
     if (!user) return null;
     let postCount = user.posts.length;
@@ -63,6 +104,8 @@ class UserProfile extends React.Component {
             <div className="username-edit">
               <h2>{user.username}</h2>
               {user.id === this.props.currentUser.id && editProfile}
+              {(user.id != this.props.currentUser.id && !this.state.following) && followButton}
+              {this.state.following && followingButton}
             </div>
 
             <div className="post-count"> 
