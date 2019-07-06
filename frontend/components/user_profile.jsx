@@ -14,7 +14,9 @@ class UserProfile extends React.Component {
 
     this.openModal = this.openModal.bind(this);
     this.handleFollowClick = this.handleFollowClick.bind(this);
+    this.handleUnfollowClick = this.handleUnfollowClick.bind(this);
     this.getFollowers = this.getFollowers.bind(this);
+    this.getCurrentUserFollow = this.getCurrentUserFollow.bind(this);
     this.verifyCurrentUserIsFollowing = this.verifyCurrentUserIsFollowing.bind(this);
   }
 
@@ -38,6 +40,19 @@ class UserProfile extends React.Component {
     let followData = {follow: {followee_id: this.props.user.id}};
     this.props.createFollow(followData)
       .then(()=> this.setState({following: true}));
+  }
+
+  handleUnfollowClick(){
+    let userFollowId = this.getCurrentUserFollow().id;
+    this.props.deleteFollow(userFollowId)
+      .then(() => this.setState({following: false}));
+  }
+
+  getCurrentUserFollow(){
+    let userFollow = this.props.follows.filter(follow =>
+      follow.follower_id === this.props.currentUser.id && follow.followee_id === this.props.user.id
+      );
+    return userFollow[0];
   }
 
   getFollowers(){
@@ -81,9 +96,9 @@ class UserProfile extends React.Component {
               </button>
     )
 
-    const followingButton = (
-      <button className="edit-profile">
-        Following
+    const unfollowButton = (
+      <button onClick={this.handleUnfollowClick} className="edit-profile">
+        Unfollow
               </button>
     )
 
@@ -105,7 +120,7 @@ class UserProfile extends React.Component {
               <h2>{user.username}</h2>
               {user.id === this.props.currentUser.id && editProfile}
               {(user.id != this.props.currentUser.id && !this.state.following) && followButton}
-              {this.state.following && followingButton}
+              {(user.id != this.props.currentUser.id && this.state.following) && unfollowButton}
             </div>
 
             <div className="post-count"> 
