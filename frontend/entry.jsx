@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root'; 
-import { createFollow, fetchFollows, fetchFollow, deleteFollow} from './util/follow_api_util';
+import { createFollow, fetchFollows, fetchFollow, deleteFollow} from './actions/follow_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
