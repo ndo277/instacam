@@ -10,13 +10,15 @@ class UserProfile extends React.Component {
 
     this.state = {
       following: null,
-      followerCount: 0
+      followerCount: 0,
+      followingCount: 0
     };
 
     this.openModal = this.openModal.bind(this);
     this.handleFollowClick = this.handleFollowClick.bind(this);
     this.handleUnfollowClick = this.handleUnfollowClick.bind(this);
     this.getFollowers = this.getFollowers.bind(this);
+    this.getFollowing = this.getFollowing.bind(this);
     this.getCurrentUserFollow = this.getCurrentUserFollow.bind(this);
     this.verifyCurrentUserIsFollowing = this.verifyCurrentUserIsFollowing.bind(this);
   }
@@ -26,7 +28,8 @@ class UserProfile extends React.Component {
       .then(() => {
         this.props.fetchFollows()
           .then(() => this.verifyCurrentUserIsFollowing())
-          .then(() => this.setState({followerCount: this.getFollowers().length}));
+          .then(() => this.setState({followerCount: this.getFollowers().length,
+                                     followingCount: this.getFollowing().length}));
       });
     this.props.fetchLikes();
     this.props.fetchComments();
@@ -61,6 +64,12 @@ class UserProfile extends React.Component {
     let userFollows = this.props.follows.filter(follow => follow.followee_id === this.props.user.id);
     let followers = userFollows.map(follow => follow.follower_id);
     return followers;
+  }
+
+  getFollowing(){
+    let userFollowings = this.props.follows.filter(follow => follow.follower_id === this.props.user.id);
+    let followedUsers = userFollowings.map(follow => follow.follower_id);
+    return followedUsers;
   }
 
   verifyCurrentUserIsFollowing(){
@@ -140,6 +149,10 @@ class UserProfile extends React.Component {
               <div className="followers-count">
                 <strong>{this.state.followerCount}</strong> {this.state.followerCount === 1 && followerDescriptorSingular}
                 {this.state.followerCount != 1 && followerDescriptorPlural}
+              </div>
+
+              <div className="followers-count">
+                <strong>{this.state.followingCount}</strong> following
               </div>
 
             </div>
