@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root'; 
 import { createFollow, fetchFollows, fetchFollow, deleteFollow} from './actions/follow_actions';
+import {fetchUsers} from './actions/user_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchFollows = fetchFollows;
   window.fetchFollow = fetchFollow;
   window.deleteFollow = deleteFollow;
+  window.fetchUsers = fetchUsers;
 
   ReactDOM.render(<Root store={store}/>, root);
 });
