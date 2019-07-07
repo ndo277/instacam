@@ -9,7 +9,8 @@ class UserProfile extends React.Component {
     super(props);
 
     this.state = {
-      following: false
+      following: null,
+      followerCount: 0
     };
 
     this.openModal = this.openModal.bind(this);
@@ -24,7 +25,8 @@ class UserProfile extends React.Component {
     this.props.fetchUser(this.props.match.params.userId)
       .then(() => {
         this.props.fetchFollows()
-          .then(() => this.verifyCurrentUserIsFollowing());
+          .then(() => this.verifyCurrentUserIsFollowing())
+          .then(() => this.setState({followerCount: this.getFollowers().length}));
       });
     this.props.fetchLikes();
     this.props.fetchComments();
@@ -39,13 +41,13 @@ class UserProfile extends React.Component {
   handleFollowClick(){
     let followData = {follow: {followee_id: this.props.user.id}};
     this.props.createFollow(followData)
-      .then(()=> this.setState({following: true}));
+      .then(() => this.setState({ following: true, followerCount: this.state.followerCount + 1}));
   }
 
   handleUnfollowClick(){
     let userFollowId = this.getCurrentUserFollow().id;
     this.props.deleteFollow(userFollowId)
-      .then(() => this.setState({following: false}));
+      .then(() => this.setState({ following: false, followerCount: this.state.followerCount - 1}));
   }
 
   getCurrentUserFollow(){
@@ -64,6 +66,8 @@ class UserProfile extends React.Component {
   verifyCurrentUserIsFollowing(){
     if (this.getFollowers().includes(this.props.currentUser.id)){
       this.setState({following: true});
+    } else {
+      this.setState({following: false});
     }
   }
 
@@ -71,7 +75,6 @@ class UserProfile extends React.Component {
   render(){
     const user = this.props.user;
     if (!user) return null;
-    const posts = this.props.posts;
     const editProfile = (
         <div>
         <Link to={`/users/${this.props.currentUser.id}/edit`} className="edit-profile">Edit Profile</Link>
@@ -102,6 +105,10 @@ class UserProfile extends React.Component {
               </button>
     )
 
+    const postDescriptorSingular = "post"
+    const postDescriptorPlural = "posts"
+    const followerDescriptorSingular = "follower"
+    const followerDescriptorPlural = "followers"
 
     if (!user) return null;
     let postCount = user.posts.length;
@@ -123,8 +130,18 @@ class UserProfile extends React.Component {
               {(user.id != this.props.currentUser.id && this.state.following) && unfollowButton}
             </div>
 
-            <div className="post-count"> 
-              <strong>{postCount}</strong> posts
+            <div className="profile-counts">
+
+              <div className="post-count"> 
+                <strong>{postCount}</strong> {postCount === 1 && postDescriptorSingular}
+                {postCount != 1 && postDescriptorPlural}
+              </div>
+
+              <div className="followers-count">
+                <strong>{this.state.followerCount}</strong> {this.state.followerCount === 1 && followerDescriptorSingular}
+                {this.state.followerCount != 1 && followerDescriptorPlural}
+              </div>
+
             </div>
 
             <div className="display-name">{user.display_name}</div>
