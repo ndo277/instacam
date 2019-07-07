@@ -88,18 +88,27 @@ class PostIndexItem extends React.Component {
     let likeData = {like: {post_id: this.props.post.id}};
 
     this.props.createLike(likeData)
-      .then(() => {this.setState({liked: true});})
-      .then(() => {this.setState({likesCount: this.state.likesCount + 1});})
-      .then(() => {this.setState({ likesPhrase: this.chooseLikesPhrase() });});
+      .then(() => {
+        this.setState({
+          liked: true,
+          likesCount: this.state.likesCount + 1,
+          likesPhrase: this.chooseLikesPhrase()
+        });
+      });
+      
   }
 
   handleUnlikeClick(){
     let userLikeId = this.getUserLike().id;
   
     this.props.deleteLike(userLikeId)
-      .then(() => {this.setState({liked: false});})
-      .then(() => {this.setState({likesCount: this.state.likesCount - 1});})
-      .then(() => {this.setState({ likesPhrase: this.chooseLikesPhrase() });});
+      .then(() => {
+        this.setState({
+          liked: false,
+          likesCount: this.state.likesCount - 1,
+          likesPhrase: this.chooseLikesPhrase()
+        });
+      });
   }
 
   openModal(){

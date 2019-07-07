@@ -282,3 +282,12 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+.profile-counts {
+  display: flex;
+  flex-direction: row;
+}
+
+.followers-count {
+  margin-left: 40px;
+}
