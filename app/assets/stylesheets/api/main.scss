@@ -393,18 +393,16 @@ body {
 }
 .follow-index-list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
 }
-
-// .names {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
 
 .follow-item {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+
+.flw-names {
+  display: flex;
+  flex-direction: column;
 }
 

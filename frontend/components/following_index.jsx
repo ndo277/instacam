@@ -27,12 +27,10 @@ class FollowingIndex extends React.Component {
     return(
       <ul className="following-index">
         {this.getFollowees().map(flw =>
-          <li className="follow-index-list">
+          <li className="follow-index-list" key={flw.id}>
             <div className="follow-item">
               <img className="profile-pic" src={flw.avatarUrl} alt="avatar"/>
-              <div className="names">
-                {flw.username}  {flw.display_name}
-              </div>
+              <div className="flw-names">{flw.username} <br/> {flw.display_name} </div>
             </div>
           </li>
           )}
