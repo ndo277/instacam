@@ -389,17 +389,19 @@ body {
   border: 1px solid #e6e6e6;
   background-color: white;
   border-radius: 3px;
+  overflow: scroll;
 }
 .follow-index-list {
   list-style: none;
-  overflow: scroll;
-}
-
-.names {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
+
+// .names {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
 
 .follow-item {
   display: flex;
