@@ -122,6 +122,7 @@ class PostIndexItem extends React.Component {
     const liked = (
       <img onClick={this.handleUnlikeClick} src="/images/like-icon-red.png" alt="liked" className="like-icon" />
     )
+
     return(
       <div className="feed-post" >
 

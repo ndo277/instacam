@@ -390,4 +390,19 @@ body {
   background-color: white;
   border-radius: 3px;
 }
+.follow-index-list {
+  list-style: none;
+  overflow: scroll;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.follow-item {
+  display: flex;
+  flex-direction: row;
+}
 
