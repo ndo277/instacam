@@ -107,7 +107,6 @@ body {
 
 .feed-post-part-bottom {
   width: 600px;
-  // height: 200px;
   display: flex;
   flex-direction: row;
   flex-direction: row;
@@ -326,6 +325,7 @@ body {
   width: 80%;
   font-size: 15px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .more {
@@ -370,6 +370,38 @@ body {
 }
 
 .like-comment {
+  display: flex;
+  flex-direction: row;
+}
+
+.feed-containers {
+  display: flex;
+  flex-direction: row;
+  margin-left: 200px;
+}
+
+.following-index {
+  position: fixed;
+  top: 25%;
+  left: 60%;
+  width: 293px;
+  height: 223px;
+  border: 1px solid #e6e6e6;
+  background-color: white;
+  border-radius: 3px;
+}
+.follow-index-list {
+  list-style: none;
+  overflow: scroll;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.follow-item {
   display: flex;
   flex-direction: row;
 }

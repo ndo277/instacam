@@ -4,8 +4,7 @@ import {withRouter} from 'react-router';
 
 const Navbar = (props) => {
 
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleClick = () => {
     props.history.push(`/users/${props.currentUser.id}`);
   };
 
