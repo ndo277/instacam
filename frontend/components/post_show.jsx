@@ -170,20 +170,18 @@ class PostShow extends React.Component {
           <div className="show-side">
 
             <div className="show-top">
-              <img onClick={() => this.props.history.push(`/users/${post.user_id}`)} className="profile-pic" src={this.props.post.avatarUrl} />       
-                <div className="show-name-button">
-                  <p onClick={() => this.props.history.push(`/users/${post.user_id}`)} className="avatar-name" >{this.props.post.username}</p>
+
+              <div className="show-name-button">
+                <div className="show-caption">
+                  <img onClick={() => this.props.history.push(`/users/${post.user_id}`)} className="profile-pic" src={this.props.post.avatarUrl} />
+                  <span>
+                    <p><strong className="caption-name" onClick={() => this.props.history.push(`/users/${post.user_id}`)}>{this.props.post.username} </strong>
+                      {this.props.post.caption}</p>
+                  </span>
+                </div>
                     {this.props.post.user_id === this.props.currentUser.id && optionsButton}
                     {this.props.currentUser.id === 1 && optionsButton}
                 </div>
-            </div>
-
-            <div className="show-caption">
-              <img onClick={() => this.props.history.push(`/users/${post.user_id}`)} className="profile-pic" src={this.props.post.avatarUrl} />
-              <span>
-                <p><strong className="caption-name" onClick={() => this.props.history.push(`/users/${post.user_id}`)}>{this.props.post.username} </strong> 
-                   {this.props.post.caption}</p>
-              </span>
             </div>
 
             <div id="scroll" className="show-comments">

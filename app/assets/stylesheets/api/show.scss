@@ -14,12 +14,12 @@
 }
 
 .show-top {
-  width: 95%;
+  width: 100%;
+  height: 15%;
   display: flex;
   flex-direction: row;
   align-items: center;
   border-bottom: 1px solid #e6e6e6;
-  padding: 10px;
 }
 
 .show-side {
@@ -123,7 +123,7 @@
 }
 
 .show-comments {
-  height: 285px;
+  height: 385px;
   border-bottom: 1px solid #e6e6e6; 
   overflow: scroll;
 }
