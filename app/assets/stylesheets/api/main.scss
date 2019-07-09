@@ -384,12 +384,13 @@ body {
   position: fixed;
   top: 25%;
   left: 60%;
-  width: 293px;
+  width: 273px;
   height: 223px;
   border: 1px solid #e6e6e6;
   background-color: white;
   border-radius: 3px;
   overflow: scroll;
+  padding: 10px;
 }
 .follow-index-list {
   list-style: none;
@@ -404,6 +405,48 @@ body {
 .flw-names {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+}
+
+.followers-button {
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.following-button {
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  color: grey;
+}
+
+.flw-btns {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5px;
+}
+
+.flw-username {
+  font-weight: 550;
+  font-size: 15px;
+}
+
+.flw-displayname {
+  color: grey;
+  font-size: 15px;
+}
+
+.profile-pic-flw {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  border-color: #000;
+  margin: 10px;
   cursor: pointer;
 }
 
