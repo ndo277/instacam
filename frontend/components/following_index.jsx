@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router';
 
 class FollowingIndex extends React.Component {
   constructor(props){
@@ -26,13 +27,20 @@ class FollowingIndex extends React.Component {
     if (!this.props.currentUser.followers) return null;
     if (!this.props.currentUser.followees) return null;
 
+
     const followers = (
       <div>
         {this.props.currentUser.followers.map(flwr =>
           <li className="follow-index-list" key={flwr.id}>
             <div className="follow-item">
-              <img className="profile-pic" src={flwr.avatarUrl} alt="avatar" />
-              <div className="flw-names">{flwr.username} <br /> {flwr.display_name} </div>
+              <img className="profile-pic" 
+                   onClick={() => this.props.history.push(`/users/${flwr.id}`)}
+                   src={flwr.avatarUrl} 
+                   alt="avatar" />
+              <div className="flw-names" 
+                   onClick={() => this.props.history.push(`/users/${flwr.id}`)}>
+                   {flwr.username} <br/> {flwr.display_name} 
+              </div>
             </div>
           </li>
         )}
@@ -45,8 +53,14 @@ class FollowingIndex extends React.Component {
         this.props.currentUser.followees.map(flwe =>
           <li className="follow-index-list" key={flwe.id}>
             <div className="follow-item">
-              <img className="profile-pic" src={flwe.avatarUrl} alt="avatar" />
-              <div className="flw-names">{flwe.username} <br /> {flwe.display_name} </div>
+              <img className="profile-pic" 
+                   src={flwe.avatarUrl} 
+                   onClick={() => this.props.history.push(`/users/${flwe.id}`)}
+                   alt="avatar" />
+              <div className="flw-names" 
+                   onClick={() => this.props.history.push(`/users/${flwe.id}`)}>
+                   {flwe.username} <br/> {flwe.display_name} 
+              </div>
             </div>
           </li>
         )
@@ -67,4 +81,4 @@ class FollowingIndex extends React.Component {
   }
 }
 
-export default FollowingIndex;
+export default withRouter(FollowingIndex);
