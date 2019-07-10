@@ -52,7 +52,9 @@ body {
   width: 1px;
   height: 32px;
   background-color: #262626;
+  opacity: 1;
   margin: 10px;
+  transition: 0.2s;
 }
 
 .welcome {
