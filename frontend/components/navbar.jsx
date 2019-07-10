@@ -4,6 +4,16 @@ import {withRouter} from 'react-router';
 
 const Navbar = (props) => {
 
+  function scrollTransition(){
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50){
+      document.getElementById("logo-name").style.opacity = "0";
+    } else {
+      document.getElementById("logo-name").style.opacity = "1";
+    }
+  }
+
+  window.onscroll = function() {scrollTransition();};
+
   const handleClick = () => {
     props.history.push(`/users/${props.currentUser.id}`);
   };
@@ -14,7 +24,7 @@ const Navbar = (props) => {
         <a className="navbar-left" href="/">
         <img className="logo-navbar" src="/images/logo.png" />
       <div className="navbar-pipe" />
-      <h1 className="logo-name-navbar">Instacam</h1>
+      <h1 id="logo-name" className="logo-name-navbar">Instacam</h1>
         </a>
 
       <div className="navbar-spacer"/>
