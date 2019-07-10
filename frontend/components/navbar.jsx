@@ -8,10 +8,18 @@ const Navbar = (props) => {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50){
       document.getElementById("logo-name").style.opacity = "0";
       document.getElementById("navbar-pipe").style.opacity = "0";
+      document.getElementById("welcome").style.opacity = "0";
+      document.getElementById("navbar-pic").style.height = "40px";
+      document.getElementById("navbar-pic").style.width = "40px";
+      document.getElementById("navbar-pic").style.marginLeft = "40px";
       document.getElementById("navbar").style.height = "50px";
     } else {
       document.getElementById("logo-name").style.opacity = "1";
       document.getElementById("navbar-pipe").style.opacity = "1";
+      document.getElementById("welcome").style.opacity = "1";
+      document.getElementById("navbar-pic").style.height = "50px";
+      document.getElementById("navbar-pic").style.width = "50px";
+      document.getElementById("navbar-pic").style.marginLeft = "0";
       document.getElementById("navbar").style.height = "77px";
     }
   }
@@ -34,8 +42,8 @@ const Navbar = (props) => {
       <div className="navbar-spacer"/>
 
         <div className="navbar-center">
-      <img onClick={handleClick} className="profile-pic-navbar" src={props.currentUser.avatarUrl} />
-      <h3 className="welcome">Welcome, {props.currentUser.username}!</h3>
+      <img onClick={handleClick} id="navbar-pic" className="profile-pic-navbar" src={props.currentUser.avatarUrl} />
+        <h3 onClick={handleClick} id="welcome" className="welcome">Welcome, {props.currentUser.username}!</h3>
         </div>
 
       <div className="navbar-spacer" />
