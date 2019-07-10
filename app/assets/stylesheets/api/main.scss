@@ -15,6 +15,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
+  transition: 0.2s;
 }
 
 .nav-button {
@@ -30,6 +31,7 @@ body {
   font-family: billabong;
   font-size: 35px;
   margin: 5px;
+  padding-top: 10px;
   opacity: 1;
   font-weight: 100;
   transition: 0.2s;
@@ -59,7 +61,7 @@ body {
 
 .welcome {
   font-family: billabong;
-  font-size: 35px;
+  font-size: 33px;
   font-weight: 100;
 }
 
@@ -67,6 +69,15 @@ body {
   border-radius: 100%;
   width: 50px;
   height: 50px;
+  border-color: #000;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.profile-pic-navbar {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
   border-color: #000;
   margin: 10px;
   cursor: pointer;
