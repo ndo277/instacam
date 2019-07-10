@@ -76,7 +76,8 @@ class FollowingIndex extends React.Component {
         
 
     return(
-      <ul className="follow-index">
+      <div>
+        
         <div className="flw-btns">
           <button onClick={this.handleFollowersClick} 
                   className="followers-button"
@@ -86,9 +87,12 @@ class FollowingIndex extends React.Component {
                   id="following-button">FOLLOWING</button>
         </div>
         <br/>
+      <ul className="follow-index">
         {this.state.followTabDefault && followers}
         {!this.state.followTabDefault && followees}
       </ul>
+
+      </div>
     )
   }
 }
