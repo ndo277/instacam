@@ -63,6 +63,9 @@ body {
   font-family: billabong;
   font-size: 33px;
   font-weight: 100;
+  opacity: 1;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
 .profile-pic {
@@ -76,11 +79,12 @@ body {
 
 .profile-pic-navbar {
   border-radius: 100%;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-color: #000;
   margin: 10px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .navbar-center {
