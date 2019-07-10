@@ -8,9 +8,11 @@ const Navbar = (props) => {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50){
       document.getElementById("logo-name").style.opacity = "0";
       document.getElementById("navbar-pipe").style.opacity = "0";
+      document.getElementById("navbar").style.height = "50px";
     } else {
       document.getElementById("logo-name").style.opacity = "1";
       document.getElementById("navbar-pipe").style.opacity = "1";
+      document.getElementById("navbar").style.height = "77px";
     }
   }
 
@@ -21,7 +23,7 @@ const Navbar = (props) => {
   };
 
   const navbar = () => (
-    <div className="navbar">
+    <div id="navbar" className="navbar">
 
         <a className="navbar-left" href="/">
         <img className="logo-navbar" src="/images/logo.png" />
@@ -32,7 +34,7 @@ const Navbar = (props) => {
       <div className="navbar-spacer"/>
 
         <div className="navbar-center">
-      <img onClick={handleClick} className="profile-pic" src={props.currentUser.avatarUrl} />
+      <img onClick={handleClick} className="profile-pic-navbar" src={props.currentUser.avatarUrl} />
       <h3 className="welcome">Welcome, {props.currentUser.username}!</h3>
         </div>
 
