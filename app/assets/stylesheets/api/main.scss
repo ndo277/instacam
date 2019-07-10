@@ -448,6 +448,17 @@ body {
   display: flex;
   justify-content: space-evenly;
   margin-top: 5px;
+
+  position: fixed;
+  top: 15%;
+  left: 62%;
+  width: 273px;
+  height: 35px;
+  border: 1px solid #e6e6e6;
+  background-color: white;
+  border-radius: 3px;
+  overflow: scroll;
+  padding: 10px;
 }
 
 .flw-username {
