@@ -76,7 +76,7 @@ class UserEdit extends React.Component {
         </div>
 
         <div className="field-name">
-          <h3 >Name</h3>
+          <h3>Name</h3>
           <h3>Username</h3>
           <h3>Website</h3>
           <h3>Bio</h3>
