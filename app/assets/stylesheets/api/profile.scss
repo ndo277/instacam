@@ -188,7 +188,16 @@
   height: 100px;
   margin: 5px;
   position: relative;
-  right: 120px;
+  right: 140px;
+}
+
+.edit-text-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  left: 100px;
+  bottom: 115px;
 }
 
 .change-button {
@@ -202,14 +211,16 @@
 
 .edit-name-field {
   margin-left: 20px;
+  margin-top: 30px;
   width: 355px;
-  height: 32px;
+  height: 25px;
   font-size: 16px;
   padding-left: 5px;
 }
 
 .edit-name-field-bio {
   margin-left: 20px;
+  margin-top: 25px;
   width: 355px;
   height: 64px;
   font-size: 16px;
