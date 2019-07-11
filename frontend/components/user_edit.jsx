@@ -89,26 +89,6 @@ class UserEdit extends React.Component {
           <textarea className="edit-name-field-bio" value={this.state.bio} onChange={this.update('bio')} type="text" />
         </div>
 
-        {/* <div className="name-field">
-          <h3 >Name</h3>
-            <input className="edit-name-field" value={this.state.name} onChange={this.update('name')} type="text"/>
-        </div>
-
-        <div className="name-field">
-          <h3>Username</h3>
-          <input className="edit-name-field" value={this.state.username} onChange={this.update('username')} type="text"/>
-        </div>
-
-        <div className="name-field">
-          <h3>Website</h3>
-          <input className="edit-name-field" value={this.state.website} onChange={this.update('website')} type="text"/>
-        </div>
-
-        <div className="name-field">
-          <h3>Bio</h3>
-          <textarea className="edit-name-field-bio" value={this.state.bio} onChange={this.update('bio')} type="text"/>
-        </div> */}
-
         <br/>
 
         <button className="submit-button" onClick={this.handleSubmit}>Submit</button>
