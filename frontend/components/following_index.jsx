@@ -76,7 +76,7 @@ class FollowingIndex extends React.Component {
         
 
     return(
-      <div>
+      <div className="feed-side">
         
         <div className="flw-btns">
           <button onClick={this.handleFollowersClick} 
@@ -91,6 +91,26 @@ class FollowingIndex extends React.Component {
         {this.state.followTabDefault && followers}
         {!this.state.followTabDefault && followees}
       </ul>
+
+        <div className="links">
+          <a className="side-link" 
+             target="_blank" href="https://ndo277.github.io/portfolio/">ABOUT ME</a>
+
+          <p className="dot">*</p>
+
+          <a className="side-link" 
+             target="_blank" href="https://github.com/ndo277/">GITHUB</a>
+
+          <p className="dot">*</p>
+
+          <a className="side-link" 
+             target="_blank" href="https://linkedin.com/in/nhat-do/">LINKEDIN</a>
+
+          <p className="dot">*</p>
+
+          <a className="side-link" 
+             target="_blank" href="https://angel.co/nhat-do-2">ANGEL LIST</a>
+        </div>
 
       </div>
     )

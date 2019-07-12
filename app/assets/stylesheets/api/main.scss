@@ -461,6 +461,31 @@ body {
   padding: 10px;
 }
 
+.links {
+  position: fixed;
+  top: 54%;
+  left: 62%;
+  width: 295px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.side-link {
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  color: grey;
+  opacity: 0.5;
+}
+
+.dot {
+  position: relative;
+  bottom: 7px;
+  font-size: 10px;
+  color: grey;
+  opacity: 0.5;
+}
+
 .flw-username {
   font-weight: 550;
   font-size: 15px;
@@ -479,4 +504,3 @@ body {
   margin: 10px;
   cursor: pointer;
 }
-
