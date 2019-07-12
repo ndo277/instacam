@@ -132,10 +132,10 @@ class SessionForm extends React.Component {
       </div>
 
         <div className="footer">
-          <h5>ABOUT ME</h5>
-          <h5>GITHUB</h5>
-          <h5>LINKEDIN</h5>
-          <h5>ANGEL LIST</h5>
+          <a className="footlink" target="_blank" href="https://ndo277.github.io/portfolio/"><h5>ABOUT ME</h5></a>
+          <a className="footlink" target="_blank" href="https://github.com/ndo277/"><h5>GITHUB</h5></a>
+          <a className="footlink" target="_blank" href="https://linkedin.com/in/nhat-do/"><h5>LINKEDIN</h5></a>
+          <a className="footlink" target="_blank" href="https://angel.co/nhat-do-2"><h5>ANGEL LIST</h5></a>
         </div>
 
       </div>
