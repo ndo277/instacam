@@ -31,7 +31,14 @@
 
 .authbox {
   width: 300px;
-  margin: auto;
+  position: relative;
+  top: 100px;
+}
+
+.phones {
+  position: relative;
+  top: 50px;
+  right: 20px;
 }
 
 
