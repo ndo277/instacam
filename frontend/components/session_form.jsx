@@ -77,6 +77,8 @@ class SessionForm extends React.Component {
 
   render() {
     return (
+      <div className="splash-page">
+
       <div className="image-form">
         <div className="box"></div>
         <img className="phones" src="/images/phones.png" />
@@ -126,6 +128,16 @@ class SessionForm extends React.Component {
         </main>
 
         <div className="box"></div>
+
+      </div>
+
+        <div className="footer">
+          <h5>ABOUT ME</h5>
+          <h5>GITHUB</h5>
+          <h5>LINKEDIN</h5>
+          <h5>ANGEL LIST</h5>
+        </div>
+
       </div>
 
     );
