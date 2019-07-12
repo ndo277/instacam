@@ -126,3 +126,17 @@
   color: #003569;
 }
 
+.splash-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  justify-content: space-evenly;
+  margin: 130px;
+}
+
