@@ -12,6 +12,8 @@
 .show-image {
   height: 598px;
   width: 598px;
+  object-fit: contain;
+  background-color: black;
 }
 
 .show-top {
