@@ -74,6 +74,7 @@ body {
   height: 50px;
   border-color: #000;
   margin: 10px;
+  object-fit: cover;
   cursor: pointer;
 }
 
@@ -101,6 +102,8 @@ body {
 .feed-image {
   height: 600px;
   width: 600px;
+  object-fit: contain;
+  background-color: black;
 }
 
 .feed-post {
@@ -319,6 +322,7 @@ body {
   width: 250px;
   height: 250px;
   margin: 5px;
+  object-fit: contain;
 }
 
 .text-field {
@@ -503,5 +507,6 @@ body {
   height: 40px;
   border-color: #000;
   margin: 10px;
+  object-fit: cover;
   cursor: pointer;
 }

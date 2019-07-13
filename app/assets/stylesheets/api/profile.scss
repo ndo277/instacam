@@ -146,6 +146,7 @@
   height: 38px;
   border: 1px solid #dbdbdb;
   border-radius: 100%;
+  object-fit: cover;
 }
 
 .user-edit-form {
@@ -267,6 +268,8 @@
   width: 293px;
   height: 293px;
   margin: 14px;
+  object-fit: contain;
+  background-color: black;
   cursor: pointer;
 }
 
