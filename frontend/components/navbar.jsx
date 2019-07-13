@@ -42,7 +42,7 @@ const Navbar = (props) => {
       <div className="navbar-spacer"/>
 
         <div className="navbar-center">
-      <img onClick={handleClick} id="navbar-pic" className="profile-pic-navbar" src={props.currentUser.avatarUrl} />
+              <img onClick={handleClick} id="navbar-pic" className="profile-pic-navbar" src={props.currentUser.avatarUrl} />
         <h3 onClick={handleClick} id="welcome" className="welcome">Welcome, {props.currentUser.username}!</h3>
         </div>
 
