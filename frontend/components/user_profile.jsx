@@ -128,7 +128,9 @@ class UserProfile extends React.Component {
         <div className="user-prof-top">
 
           <div className="user-avatar-container">
-            {this.props.user.id === this.props.currentUser.id ? userAvatar1 : userAvatar2}
+            <div className="profile-pic-container">
+              {this.props.user.id === this.props.currentUser.id ? userAvatar1 : userAvatar2}
+            </div>
           </div>
           
           <div className="profile-desc" >

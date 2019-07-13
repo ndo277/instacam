@@ -3,12 +3,19 @@
   height: 150px;
   border-radius: 100%;
   cursor: pointer;
+  object-fit: cover;
 }
 
 .user-profile-avatar2 {
   width: 150px;
   height: 150px;
   border-radius: 100%;
+  object-fit: cover;
+}
+
+.profile-pic-container {
+  width: 150px;
+  height: 150px;
 }
 
 .user-avatar-container{
