@@ -56,16 +56,21 @@
   border: 1px solid #e6e6e6;
   border-top-left-radius: 20%;
   border-top-right-radius: 20%;
-  width: 254px;
+  border-bottom-right-radius: 20%;
+  border-bottom-left-radius: 20%;
+  width: 99%;
   height: 70px;
   display: flex;
   justify-content: start;
   outline-width: 0;
   resize: none;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .edit-modal-button {
+  border-top-left-radius: 20%;
+  border-top-right-radius: 20%;
   width: 260px;
   height: 48px;
   background: white;
@@ -150,6 +155,7 @@
   font-size: 14px;
   font-weight: bold;
   padding: 0;
+  background-color: inherit;
   color: #3897F0;
   outline: none;
   cursor: pointer;

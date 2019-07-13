@@ -3,6 +3,10 @@ body {
   font-family: Arial;
 }
 
+textarea {
+-webkit-appearance: textfield;
+}
+
 .navbar {
   z-index: 2;
   display: flex;
