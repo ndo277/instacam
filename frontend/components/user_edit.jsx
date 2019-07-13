@@ -75,23 +75,29 @@ class UserEdit extends React.Component {
 
         </div>
 
-        <div className="field-name">
-          <h3>Name</h3>
-          <h3>Username</h3>
-          <h3>Website</h3>
-          <h3>Bio</h3>
-        </div>
-        
-        <div className="edit-text-field">
-          <input className="edit-name-field" value={this.state.name} onChange={this.update('name')} type="text" />
-          <input className="edit-name-field" value={this.state.username} onChange={this.update('username')} type="text" />
-          <input className="edit-name-field" value={this.state.website} onChange={this.update('website')} type="text" />
-          <textarea className="edit-name-field-bio" value={this.state.bio} onChange={this.update('bio')} type="textarea" />
+        <div className="edit-main-container">
+
+          <div className="field-name">
+            <h3>Name</h3>
+            <h3>Username</h3>
+            <h3>Website</h3>
+            <h3>Bio</h3>
+          </div>
+          
+          <div className="edit-text-field">
+            <input className="edit-name-field" value={this.state.name} onChange={this.update('name')} type="text" />
+            <input className="edit-name-field" value={this.state.username} onChange={this.update('username')} type="text" />
+            <input className="edit-name-field" value={this.state.website} onChange={this.update('website')} type="text" />
+            <textarea className="edit-name-field-bio" value={this.state.bio} onChange={this.update('bio')} type="textarea" />
+
+            <button className="submit-button" onClick={this.handleSubmit}>Submit</button>
+          </div>
+
         </div>
 
         <br/>
 
-        <button className="submit-button" onClick={this.handleSubmit}>Submit</button>
+        
 
       </div>
     )

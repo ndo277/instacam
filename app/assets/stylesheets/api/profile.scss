@@ -187,6 +187,12 @@
   align-items: center;
 }
 
+.edit-main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
 .field-name {
   display: flex;
   flex-direction: column;
@@ -195,17 +201,28 @@
   width: 90px;
   height: 100px;
   margin: 5px;
-  position: relative;
-  right: 160px;
 }
 
 .edit-text-field {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  position: relative;
-  left: 72px;
-  bottom: 115px;
+  align-items: center;
+}
+
+.submit-button {
+  background-color: #3897f0;
+  border: 1px solid #3897f0;
+  border-radius: 4px;
+  color: #fff;
+  margin: 10px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
 }
 
 .change-button {
@@ -235,22 +252,6 @@
   font-size: 16px;
   padding-left: 5px;
   resize: none;
-}
-
-.submit-button {
-  background-color: #3897f0;
-  border: 1px solid #3897f0;
-  border-radius: 4px;
-  color: #fff;
-  position: relative;
-  bottom: 108px;
-  height: 30px;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  cursor: pointer;
 }
 
 .user-errors {
