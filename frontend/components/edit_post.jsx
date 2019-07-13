@@ -39,15 +39,15 @@ class EditPost extends React.Component {
     return(
       <div className="edit-form">
         <form onSubmit={this.handleSubmit}>
-          <textarea placeholder="Update caption..." 
+          <textarea placeholder="Update current caption..." 
                     className="edit-field"
                     value={this.state.caption}
                     onChange={this.handleInput} />
             
-          <input className="edit-modal-button" type="submit" value="Update post"/>
+          <input className="edit-modal-button" type="submit" value="Update Post"/>
             <div className="edit-modal-sep" />
         </form>
-        <button className="delete-show-button" onClick={this.handleDelete} >Delete</button>
+        <button className="delete-show-button" onClick={this.handleDelete} >Delete Photo</button>
         <div className="edit-modal-sep" />
         <button className="modal-button-cancel" onClick={this.handleCancel}>Cancel</button>
       </div>
