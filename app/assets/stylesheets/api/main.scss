@@ -409,22 +409,6 @@ textarea {
   margin-left: 200px;
 }
 
-.follow-index {
-  position: fixed;
-  top: 20%;
-  left: 62%;
-  width: 273px;
-  height: 223px;
-  border: 1px solid #e6e6e6;
-  background-color: white;
-  border-radius: 3px;
-  overflow: scroll;
-  padding: 10px;
-}
-.follow-index-list {
-  list-style: none;
-}
-
 .follow-item {
   display: flex;
   flex-direction: row;
@@ -456,14 +440,36 @@ textarea {
   background-color: white;
 }
 
-.flw-btns {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 5px;
+.follow-index-list {
+  list-style: none;
+}
 
+.feed-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 273px;
+  height: 400px;
   position: fixed;
   top: 15%;
   left: 62%;
+}
+
+.follow-index {
+  width: 273px;
+  height: 243px;
+  border: 1px solid #e6e6e6;
+  border-top: none;
+  background-color: white;
+  border-radius: 3px;
+  overflow: scroll;
+  padding: 10px;
+  margin-top: 0;
+}
+
+.flw-btns {
+  display: flex;
+  justify-content: space-evenly;
   width: 273px;
   height: 35px;
   border: 1px solid #e6e6e6;
@@ -474,9 +480,8 @@ textarea {
 }
 
 .links {
-  position: fixed;
-  top: 54%;
-  left: 62%;
+  margin: 5px;
+  height: 20px;
   width: 295px;
   display: flex;
   justify-content: space-evenly;
