@@ -81,7 +81,7 @@ class PostForm extends React.Component {
                   ?
                   <div>
                     <img src={this.state.photoUrl} />
-                    <textarea className="text-field" placeholder="Add caption..."
+                    <textarea className="text-field" placeholder="Add a caption..."
                       type="text"
                       value={this.state.caption}
                       onChange={this.handleInput} />
