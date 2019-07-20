@@ -6,12 +6,21 @@ class PostIndex extends React.Component {
     super(props);
 
     this.getUserFolloweesIds = this.getUserFolloweesIds.bind(this);
+    this.getUserFolloweesPosts = this.getUserFolloweesPosts.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchPosts()
+      .then(() => this.getUserFolloweesPosts());
     this.props.fetchLikes();
-    // this.getUserFolloweesIds();
+  }
+
+  getUserFolloweesPosts() {
+    let followeeIds = this.getUserFolloweesIds();
+    let followeePosts = this.props.posts.filter(post =>{
+      return followeeIds.includes(post.user_id);
+    });
+    return followeePosts;
   }
 
   getUserFolloweesIds() {
