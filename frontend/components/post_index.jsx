@@ -5,13 +5,19 @@ class PostIndex extends React.Component {
   constructor(props){
     super(props);
 
+    this.state = {
+      followedPosts: null
+    };
+
     this.getUserFolloweesIds = this.getUserFolloweesIds.bind(this);
     this.getUserFolloweesPosts = this.getUserFolloweesPosts.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchPosts()
-      .then(() => this.getUserFolloweesPosts());
+      .then(() => this.setState({
+        followedPosts: this.getUserFolloweesPosts() 
+        }));
     this.props.fetchLikes();
   }
 
@@ -32,6 +38,7 @@ class PostIndex extends React.Component {
   }
 
   render() {
+      debugger;
       return (
         <div>
           <ul>
