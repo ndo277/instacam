@@ -2,10 +2,24 @@ import React from 'react';
 import PostIndexItemContainer from './post_index_item_container';
 
 class PostIndex extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.getUserFolloweesIds = this.getUserFolloweesIds.bind(this);
+  }
 
   componentDidMount() {
     this.props.fetchPosts();
     this.props.fetchLikes();
+    // this.getUserFolloweesIds();
+  }
+
+  getUserFolloweesIds() {
+    let userFolloweesIds = this.props.currentUser.followees.map(flwe => {
+      return flwe.id;
+    });
+
+    return userFolloweesIds;
   }
 
   render() {
