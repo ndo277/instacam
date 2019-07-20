@@ -6,7 +6,7 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
@@ -23,7 +23,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user).then(()=> {
-      this.props.history.push("/");
+      // this.props.history.push("/");
     });
   }
 
@@ -43,10 +43,7 @@ class SessionForm extends React.Component {
   }
   
   loginDemoUser(){
-    this.props.login({ username: "vhsjoh", password: "password" }).then(() => {
-      this.props.history.push("/");
-    }
-    );
+    this.props.login({ username: "vhsjoh", password: "password" });
   }
 
   demoLogin(username, password) {
@@ -56,8 +53,8 @@ class SessionForm extends React.Component {
     } else if (password.length > 0) {
       this.setState({ password: this.state.password += password.shift() },
         () => window.setTimeout(() => this.demoLogin(username, password), 70));
-    } else if (username.length === 0 && password.length === 0) {
-      this.props.demoLogin(this.state);
+    } else {
+      this.demoLogin(this.state);
     }
   }
 

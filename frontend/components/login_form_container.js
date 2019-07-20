@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import SessionForm from './session_form';
 import { login, clearSessionErrors } from '../actions/session_actions';
+import {createFollow} from '../actions/follow_actions';
 
 const mapStateToProps = (state) => ({
   errors: state.errors.sessionErrors,
@@ -14,7 +15,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   processForm: (user) => dispatch(login(user)),
   login: (user) => dispatch(login(user)),
-  clearErrors: () => dispatch(clearSessionErrors())
+  clearErrors: () => dispatch(clearSessionErrors()),
+  createFollow: (data) => dispatch(createFollow(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
