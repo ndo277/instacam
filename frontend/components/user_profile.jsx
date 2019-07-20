@@ -31,7 +31,6 @@ class UserProfile extends React.Component {
           .then(() => this.setState({followerCount: this.getFollowers().length,
                                      followingCount: this.getFollowing().length}));
       });
-    // debugger
     this.props.fetchLikes();
     this.props.fetchComments();
   }
