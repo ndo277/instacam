@@ -5,6 +5,7 @@ import {createFollow} from '../actions/follow_actions';
 
 const mapStateToProps = (state) => ({
   errors: state.errors.sessionErrors,
+  currentUser: state.entities.users[state.session.id],
   formType: '',
   buttonType: "Log In",
   linkType: "Sign up",
