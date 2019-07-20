@@ -6,7 +6,7 @@ class PostIndex extends React.Component {
     super(props);
 
     this.state = {
-      followedPosts: null
+      followedPosts: []
     };
 
     this.getUserFolloweesIds = this.getUserFolloweesIds.bind(this);
@@ -38,11 +38,11 @@ class PostIndex extends React.Component {
   }
 
   render() {
-      debugger;
+      
       return (
         <div>
           <ul>
-            {this.props.posts.map((post) => {
+            {this.state.followedPosts.map((post) => {
               return <li key={post.id} className="post-index-list">
                 <PostIndexItemContainer post={post} 
                                currentUser={this.props.currentUser}
